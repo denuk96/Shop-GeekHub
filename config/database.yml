@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: shop_development
+  username: <%= Rails.application.credentials.aws[:db_user] %>
+  password: <%= Rails.application.credentials.aws[:db_password] %>
+  encoding: unicode
+  host: localhost
+  pool: 5
+
+test:
+  <<: *default
+  database: shop_test
+  username: <%= Rails.application.credentials.aws[:db_user] %>
+  password: <%= Rails.application.credentials.aws[:db_password] %>
+  encoding: unicode
+  host: localhost
+  pool: 5
+
+production:
+  <<: *default
+  database: shop_production
+  username: denuk96
+  password: <%= ENV['SHOP_DATABASE_PASSWORD'] %>
