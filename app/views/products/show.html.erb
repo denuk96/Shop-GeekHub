@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="mb-12 card text-white bg-secondary">
+          <h2 class="card-header">
+            <span class="product_title"><%= @product.title %></span><br>
+            <em> in <%= @product.category.title %>s</em>
+          </h2>
+          <div class="card-body">
+            <p class="card-text">
+              <%=@product.description %>
+            </p>
+            <div class="">
+              <h5 class="card-title price row">
+                <strong class="left"><%= @product.price %></strong>
+                <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
+              </h5>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
