@@ -41,6 +41,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', '~> 0.77.0'
+  gem 'annotate', '~> 3.0', '>= 3.0.3'
 end
 
 group :test do
