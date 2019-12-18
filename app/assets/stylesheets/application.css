@@ -14,3 +14,16 @@ body {
 em {
     font-size: 15px;
 }
+
+.search-nav {
+    border: medium none;
+    background-image: none;
+    background: transparent;
+    float: left;
+    background-color: transparent;
+}
+.search-nav i{
+    color: #DADADA;
+    font-size: 25px;
+}
+

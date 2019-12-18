@@ -13,4 +13,11 @@
 
 class Product < ApplicationRecord
   belongs_to :category
+
+  validates :title, :description, :price, presence: true
+  validates :title, uniqueness: true
+
+  def self.search(search)
+    where('title LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%")
+  end
 end

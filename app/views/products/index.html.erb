@@ -1,26 +1,32 @@
 <div class="container">
   <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-md-4">
-        <%= link_to(product) do %>
-          <div class="mb-4 card text-white bg-secondary">
-            <h2 class="card-header">
-              <span class="product_title"><%= product.title %></span><br>
-              <em> in <%= product.category.title %>s</em>
-            </h2>
-            <div class="card-body">
-              <p class="card-text">
-                <%=h truncate(product.description, length: 30) %>
-              </p>
-              <div class="">
-                <h5 class="card-title price row">
-                  <strong class="left"><%= product.price %></strong>
-                  <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
-                </h5>
+    <% if @products.present? %>
+      <% @products.each do |product| %>
+        <div class="col-md-4">
+          <%= link_to(product) do %>
+            <div class="mb-4 card text-white bg-secondary">
+              <h2 class="card-header">
+                <span class="product_title"><%= product.title %></span><br>
+                <em> in <%= product.category.title %>s</em>
+              </h2>
+              <div class="card-body">
+                <p class="card-text">
+                  <%=h truncate(product.description, length: 30) %>
+                </p>
+                <div class="">
+                  <h5 class="card-title price row">
+                    <strong class="left"><%= product.price %></strong>
+                    <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
+                  </h5>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="container">
+        <p class="search alert alert-secondary">There are no items containing the term(s) <%= params[:search] %>.</p>
       </div>
     <% end %>
   </div>
