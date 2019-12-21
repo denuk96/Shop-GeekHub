@@ -1,5 +1,11 @@
 require 'faker'
 
+if User.find_by(email: 'test@test').nil?
+  User.create([email: 'test@test', password: 'test', admin: true])
+else
+  puts 'User already exist'
+end
+
 Category.create([{title: 'Book' }, {title: 'Magazine' }, {title: 'Manga' }])
 
 10.times do
