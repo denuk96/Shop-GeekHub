@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :products
 
   scope :admin do
-    resources :categories, controller: 'backoffice/categories', as: 'backofficeCategories'
-    resources :products, controller: 'backoffice/products'
+    resources :categories, controller: 'backoffice/categories', as: 'admin_categories'
+    resources :products, controller: 'backoffice/products', as: 'admin_products'
   end
 
   resources :users

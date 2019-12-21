@@ -1,1 +1,22 @@
-<p>show prod</p>
+<div class="container" >
+ <div class="show_product">
+    <p>
+      <strong>Title: </strong><%= @product.title.capitalize %>
+    </p>
+    <p>
+      <strong>Category: </strong><%= @product.category.title.capitalize %>
+    </p>
+    <p>
+      <strong>Description: </strong><%= @product.description.capitalize %>
+    </p>
+    <p>
+      <strong>Price: </strong> <%= @product.price %>
+    </p>
+ </div>
+  <div class="links">
+    <%= link_to 'Edit', edit_admin_product_path(@product) %>
+    <%= link_to 'Destroy', admin_product_path(@product), method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Back', :back %>
+  </div>
+</div>

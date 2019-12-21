@@ -1,0 +1,39 @@
+<div class="container">
+  <%= form_with(model: [ :admin, @product ],local: true) do |form| %>
+    <% if @product.errors.any? %>
+      <div class="alert alert-danger">
+        <h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.collection_select(:category_id, Category.all, :id, :title, class:'form-control' ) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: "form-control"%>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_area :price, class: "form-control"%>
+    </div>
+
+    <br>
+    <div class="text-center actions">
+      <%= form.submit 'Submit', class: "btn btn-light" %>
+    </div>
+  <% end %>
+</div>
+
+

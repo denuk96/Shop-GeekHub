@@ -8,7 +8,7 @@
 
 body {
     background-image: url(https://picua.org/images/2019/12/17/022cb3b921994985449245a411166609.jpg);
-    background-size: 100%;
+    background-size: cover;
     color: #DADADA;
 }
 em {

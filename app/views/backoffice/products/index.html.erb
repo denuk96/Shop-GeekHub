@@ -1,1 +1,29 @@
-<p> index prod </p>
+<div class="container">
+  <h1>Products</h1>
+  <%= link_to 'New Post', new_admin_product_path, class: 'btn btn-primary' %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>desc</th>
+      <th>price</th>
+    </tr>
+    <ul>
+      <% @products.each do |products| %>
+        <tr>
+          <td><%= products.title %> </td>
+          <td><%= products.category.title %> </td>
+          <td><%=h truncate(products.description, length: 100) %></td>
+          <td><%= products.price %></td>
+          <td><%= link_to 'Show', admin_product_path(products) %></td>
+          <td><%= link_to 'Edit', edit_admin_product_path(products) %></td>
+          <td><%= link_to 'Destroy', admin_product_path(products), method: :delete,
+                          data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </ul>
+  </table>
+  <div class="row justify-content-center">
+    <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>
+  </div>
+</div>
