@@ -10,8 +10,8 @@
 #
 
 class Category < ApplicationRecord
-  has_many :products
+  has_many :products, dependent: :destroy
 
-  validates :title,:description, presence: true
+  validates :title, :description, presence: true
   validates :title, uniqueness: true
 end

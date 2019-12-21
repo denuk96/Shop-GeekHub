@@ -1,0 +1,16 @@
+<div class="container" >
+  <div class="show">
+    <p>
+      <strong>Title: </strong><%= @category.title.capitalize %>
+    </p>
+    <p>
+      <strong>Description: </strong><%= @category.description.capitalize %>
+    </p>
+  </div>
+  <div class="links">
+    <%= link_to 'Edit', edit_admin_category_path(@category) %>
+    <%= link_to 'Destroy', admin_category_path(@category), method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Back', :back %>
+  </div>
+</div>

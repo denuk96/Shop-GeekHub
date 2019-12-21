@@ -1,7 +1,7 @@
 require 'faker'
 
-if User.find_by(email: 'test@test').nil?
-  User.create([email: 'test@test', password: 'test', admin: true])
+if User.find_by(email: 'admin@example.com').nil?
+  User.create([email: 'admin@example.com', password: 'AdminPassword', admin: true])
 else
   puts 'User already exist'
 end
