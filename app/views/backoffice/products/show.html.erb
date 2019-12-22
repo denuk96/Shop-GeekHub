@@ -4,7 +4,10 @@
       <strong>Title: </strong><%= @product.title.capitalize %>
     </p>
     <p>
-      <strong>Category: </strong><%= @product.category.title.capitalize %>
+      <strong>Category: </strong>
+      <%= link_to admin_category_path(@product.category_id) do %>
+        <%= @product.category.title %>
+      <% end %>
     </p>
     <p>
       <strong>Description: </strong><%= @product.description.capitalize %>
