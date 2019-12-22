@@ -2,7 +2,11 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
   before_action :find_category, except: %i[new create index]
 
   def index
-    @categories = Category.all.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    @categories = if params[:search]
+                    Category.search(params[:search]).order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+                  else
+                    Category.all.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+                  end
   end
 
   def show; end

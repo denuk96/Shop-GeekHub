@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="form-inline">
+    <%= form_tag(admin_categories_path, method: "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search", class:'form-control' %>
+      <button type="submit" class="btn btn-outline-light"><i class="fa fa-search"></i></button>
+    <% end %>
+  </div>
   <h1>Categories</h1>
   <%= link_to 'New Category', new_admin_category_path, class: 'btn btn-primary' %>
   <table>
@@ -7,15 +13,21 @@
       <th>desc</th>
     </tr>
     <ul>
-      <% @categories.each do |category| %>
-        <tr>
-          <td><%= category.title %> </td>
-          <td><%=h truncate(category.description, length: 100) %></td>
-          <td><%= link_to 'Show', admin_category_path(category) %></td>
-          <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-          <td><%= link_to 'Destroy', admin_category_path(category), method: :delete,
-                          data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+      <% if @categories.present? %>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.title %> </td>
+            <td><%=h truncate(category.description, length: 100) %></td>
+            <td><%= link_to 'Show', admin_category_path(category) %></td>
+            <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+            <td><%= link_to 'Destroy', admin_category_path(category), method: :delete,
+                            data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <td class="search alert alert-secondary">
+          There are no items containing the term(s) <%= params[:search] %>.
+        </td>
       <% end %>
     </ul>
   </table>

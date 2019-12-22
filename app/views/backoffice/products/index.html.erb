@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="form-inline">
+    <%= form_tag(admin_products_path, method: "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search", class:'form-control' %>
+      <button type="submit" class="btn btn-outline-light"><i class="fa fa-search"></i></button>
+    <% end %>
+  </div>
   <h1>Products</h1>
   <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
   <table>
@@ -9,17 +15,23 @@
       <th>price</th>
     </tr>
     <ul>
-      <% @products.each do |products| %>
-        <tr>
-          <td><%= products.title %> </td>
-          <td><%= products.category.title %> </td>
-          <td><%=h truncate(products.description, length: 100) %></td>
-          <td><%= products.price %></td>
-          <td><%= link_to 'Show', admin_product_path(products) %></td>
-          <td><%= link_to 'Edit', edit_admin_product_path(products) %></td>
-          <td><%= link_to 'Destroy', admin_product_path(products), method: :delete,
-                          data: { confirm: 'Are you sure?' } %></td>
-        </tr>
+      <% if @products.present? %>
+        <% @products.each do |products| %>
+          <tr>
+            <td><%= products.title %> </td>
+            <td><%= products.category.title %> </td>
+            <td><%=h truncate(products.description, length: 100) %></td>
+            <td><%= products.price %></td>
+            <td><%= link_to 'Show', admin_product_path(products) %></td>
+            <td><%= link_to 'Edit', edit_admin_product_path(products) %></td>
+            <td><%= link_to 'Destroy', admin_product_path(products), method: :delete,
+                            data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <td class="search alert alert-secondary">
+          There are no items containing the term(s) <%= params[:search] %>.
+        </td>
       <% end %>
     </ul>
   </table>
