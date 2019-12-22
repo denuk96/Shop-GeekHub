@@ -16,4 +16,5 @@ class Product < ApplicationRecord
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true
+
 end

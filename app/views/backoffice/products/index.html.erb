@@ -11,15 +11,19 @@
     <tr>
       <th>Title</th>
       <th>Category</th>
-      <th>desc</th>
-      <th>price</th>
+      <th>Description</th>
+      <th>Price</th>
     </tr>
     <ul>
       <% if @products.present? %>
         <% @products.each do |products| %>
           <tr>
             <td><%= products.title %> </td>
-            <td><%= products.category.title %> </td>
+            <td>
+              <%= link_to admin_category_path(products.category_id) do %>
+                <%= products.category.title %>
+              <% end %>
+            </td>
             <td><%=h truncate(products.description, length: 100) %></td>
             <td><%= products.price %></td>
             <td><%= link_to 'Show', admin_product_path(products) %></td>

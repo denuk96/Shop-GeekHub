@@ -1,7 +1,7 @@
 <div class="container" >
   <div class="show">
     <p>
-      <strong>Title: </strong><%= @category.title.capitalize %>
+      <strong>Title: </strong><h2><%= @category.title.capitalize %></h2>
     </p>
     <p>
       <strong>Description: </strong><%= @category.description.capitalize %>
@@ -12,5 +12,38 @@
     <%= link_to 'Destroy', admin_category_path(@category), method: :delete,
                 data: { confirm: 'Are you sure?' } %>
     <%= link_to 'Back', :back %>
+  </div>
+  <h4>Products in <%= @category.title.capitalize %></h4>
+  <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>desc</th>
+      <th>price</th>
+    </tr>
+    <ul>
+      <% if @category.products.present? %>
+        <% @category.products.each do |products| %>
+          <tr>
+            <td><%= products.title %> </td>
+            <td><%= products.category.title %> </td>
+            <td><%=h truncate(products.description, length: 100) %></td>
+            <td><%= products.price %></td>
+            <td><%= link_to 'Show', admin_product_path(products) %></td>
+            <td><%= link_to 'Edit', edit_admin_product_path(products) %></td>
+            <td><%= link_to 'Destroy', admin_product_path(products), method: :delete,
+                            data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <td class="search alert alert-secondary">
+          empty..
+        </td>
+      <% end %>
+    </ul>
+  </table>
+  <div class="row justify-content-center">
+    <%= will_paginate(@products, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>
   </div>
 </div>

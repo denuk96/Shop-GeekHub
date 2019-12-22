@@ -9,7 +9,9 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
                   end
   end
 
-  def show; end
+  def show
+    @products = Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+  end
 
   def new
     @category = Category.new
