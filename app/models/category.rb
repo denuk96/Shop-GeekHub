@@ -14,8 +14,4 @@ class Category < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :title, uniqueness: true
-
-  def self.search(search)
-    where('title ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")
-  end
 end

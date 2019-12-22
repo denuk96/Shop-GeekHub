@@ -27,3 +27,10 @@ em {
     font-size: 25px;
 }
 
+.field {
+    margin-bottom: 10px;
+}
+
+.field i {
+    color: red;
+}

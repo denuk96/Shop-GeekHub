@@ -16,8 +16,4 @@ class Product < ApplicationRecord
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true
-
-  def self.search(search)
-    where('title ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")
-  end
 end
