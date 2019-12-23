@@ -82,5 +82,5 @@ yarn-debug.log*
 /config/master.key
 
 !/.rubocop.yml
+
 !/public/uploads/
-/public/uploads/

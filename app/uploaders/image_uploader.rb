@@ -3,6 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  process resize_to_fit: [800, 800]
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -22,21 +23,30 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process scale: [200, 300]
+  #process scale: [200, 300]
   #
   #def scale(width, height)
   #  process scale: [500, 500]
   #end
 
+
   # Create different versions of your uploaded files:
-  version :thumb do
+  version :small do
+    process resize_to_fit: [50, 50]
+  end
+
+  version :medium do
     process resize_to_fit: [200, 200]
+  end
+
+  version :large do
+    process resize_to_fit: [500, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(jpg jpeg png)
+    %w[jpg jpeg png]
   end
 
   # Override the filename of the uploaded files:
