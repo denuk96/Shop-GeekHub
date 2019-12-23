@@ -83,3 +83,4 @@ yarn-debug.log*
 
 !/.rubocop.yml
 !/public/uploads/
+/public/uploads/
