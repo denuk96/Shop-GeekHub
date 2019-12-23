@@ -26,8 +26,8 @@ pickle-email-*.html
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-!/log/.keep
-!/tmp/.keep
+/log/.keep
+/tmp/.keep
 /log/development.log
 
 # Ignore uploaded files in development.
@@ -81,8 +81,5 @@ yarn-debug.log*
 .yarn-integrity
 /config/master.key
 
-!/.rubocop.yml
-
-
-!/public/uploads/
-!/public/uploads
+/.rubocop.yml
+/public/uploads
