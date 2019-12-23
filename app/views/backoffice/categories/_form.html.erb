@@ -14,11 +14,15 @@
     <%= form.label :title %>
     <%= form.text_field :title, class: "form-control"%>
   </div>
+
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control"%>
   </div>
 
+  <div class="field">
+    <%= form.file_field :image %>
+  </div>
 
   <br>
   <div class="text-center actions">

@@ -7,6 +7,7 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image       :string
 #
 
 class Category < ApplicationRecord
@@ -14,4 +15,5 @@ class Category < ApplicationRecord
 
   validates :title, :description, presence: true
   validates :title, uniqueness: true
+  mount_uploader :image, ImageUploader
 end

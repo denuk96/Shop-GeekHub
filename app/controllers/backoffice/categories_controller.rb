@@ -21,7 +21,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
     @category = Category.new(category_params)
     if @category.save
       redirect_to admin: @category
-      flash[:notice] = 'Category has been added'
+      flash[:notice] = 'Category has been created'
     else
       render :new
     end
@@ -50,6 +50,6 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
   end
 
   def category_params
-    params.require(:category).permit(:title, :description)
+    params.require(:category).permit(:title, :description, :image)
   end
 end

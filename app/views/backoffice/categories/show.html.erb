@@ -6,6 +6,9 @@
     <p>
       <strong>Description: </strong><%= @category.description.capitalize %>
     </p>
+    <p>
+      <%= image_tag @category.image_url(:large) if @category.image? %>
+    </p>
   </div>
   <div class="links">
     <%= link_to 'Edit', edit_admin_category_path(@category) %>

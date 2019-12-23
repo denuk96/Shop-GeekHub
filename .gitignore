@@ -82,5 +82,13 @@ yarn-debug.log*
 /config/master.key
 
 !/.rubocop.yml
+
 !/public/uploads/
-/public/uploads/
+!/public/uploads
+!/public/uploads/
+!/public/uploads/tmp/
+!/public/uploads/
+!/public/uploads/product/
+!/public/uploads/category/
+!/public/uploads/
+Будет удалено public/uploads/category/image/4/
