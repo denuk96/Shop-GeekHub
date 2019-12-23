@@ -9,6 +9,7 @@
 #  category_id :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  images      :string           default([]), is an Array
 #
 
 require 'test_helper'

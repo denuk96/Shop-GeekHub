@@ -29,6 +29,10 @@
       <%= form.text_area :price, class: "form-control"%>
     </div>
 
+    <div class="field">
+      <%= form.file_field :images, multiple: true %>
+    </div>
+
     <br>
     <div class="text-center actions">
       <%= form.submit 'Submit', class: "btn btn-light" %>

@@ -48,6 +48,6 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :category_id, :price)
+    params.require(:product).permit(:title, :description, :category_id, :price, {images: []})
   end
 end
