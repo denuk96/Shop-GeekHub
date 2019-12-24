@@ -15,11 +15,11 @@
     <p>
       <strong>Price: </strong> <%= @product.price %>
     </p>
-    <p>
+    <div>
       <% @product.images.each do |image| %>
-        <%= image_tag(image.url(:lagre)) %>
+        <%= image_tag image.url(:medium) %>
       <% end %>
-    </p>
+    </div>
  </div>
   <div class="links">
     <%= link_to 'Edit', edit_admin_product_path(@product) %>

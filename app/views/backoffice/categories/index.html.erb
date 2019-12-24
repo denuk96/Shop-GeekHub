@@ -10,18 +10,25 @@
   <table>
     <tr>
       <th>Title</th>
-      <th>desc</th>
+      <th>Description</th>
+      <th>Actions</th>
     </tr>
     <ul>
       <% if @categories.present? %>
         <% @categories.each do |category| %>
           <tr>
-            <td><%= category.title %> </td>
+            <td>
+              <%= link_to admin_category_path(category), class:'link' do %>
+                <%= category.title %>
+              <% end %>
+            </td>
             <td><%=h truncate(category.description, length: 100) %></td>
-            <td><%= link_to 'Show', admin_category_path(category) %></td>
-            <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-            <td><%= link_to 'Destroy', admin_category_path(category), method: :delete,
-                            data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <%= link_to 'Show', admin_category_path(category) %>
+              <%= link_to 'Edit', edit_admin_category_path(category) %>
+              <%= link_to 'Destroy', admin_category_path(category), method: :delete,
+                            data: { confirm: 'Are you sure?' } %>
+            </td>
           </tr>
         <% end %>
       <% else %>

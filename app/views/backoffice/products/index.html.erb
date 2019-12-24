@@ -13,6 +13,7 @@
       <th>Category</th>
       <th>Description</th>
       <th>Price</th>
+      <th>Actions</th>
     </tr>
     <ul>
       <% if @products.present? %>
@@ -30,10 +31,12 @@
             </td>
             <td><%=h truncate(products.description, length: 100) %></td>
             <td><%= products.price %></td>
-            <td><%= link_to 'Show', admin_product_path(products) %></td>
-            <td><%= link_to 'Edit', edit_admin_product_path(products) %></td>
-            <td><%= link_to 'Destroy', admin_product_path(products), method: :delete,
-                            data: { confirm: 'Are you sure?' } %></td>
+            <td>
+              <%= link_to 'Show', admin_product_path(products) %>
+              <%= link_to 'Edit', edit_admin_product_path(products) %>
+              <%= link_to 'Destroy', admin_product_path(products), method: :delete,
+                            data: { confirm: 'Are you sure?' } %>
+            </td>
           </tr>
         <% end %>
       <% else %>
