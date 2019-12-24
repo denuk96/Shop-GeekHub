@@ -30,7 +30,11 @@
     </div>
 
     <div class="field">
-      <%= form.file_field :images, multiple: true %>
+      <%= form.file_field :images, multiple: true, class: "file"%>
+    </div>
+
+    <div class="upload-preview">
+      <img />
     </div>
 
     <div>
@@ -45,5 +49,19 @@
     </div>
   <% end %>
 </div>
-
+<script>
+    document.querySelector('.file').addEventListener('change', event => {
+        [...event.target.files].forEach(file => {
+            const url = URL.createObjectURL(file)
+            addImageToBody(url)
+        })
+    })
+    // add image to html
+    function addImageToBody (src) {
+        const img = document.createElement('img')
+        img.src = src
+        img.className = 'my-img'
+        $('.upload-preview').append(img)
+    }
+</script>
 
