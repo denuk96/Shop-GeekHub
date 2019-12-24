@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   scope :admin do
     resources :categories, controller: 'backoffice/categories', as: 'admin_categories'
-    resources :products, controller: 'backoffice/products', as: 'admin_products'
+    resources :products, controller: 'backoffice/products', as: 'admin_products' do
+      resources :images, controller: 'backoffice/images'
+    end
   end
 
   resources :users

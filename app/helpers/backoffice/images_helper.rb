@@ -1,0 +1,2 @@
+module Backoffice::ImagesHelper
+end
