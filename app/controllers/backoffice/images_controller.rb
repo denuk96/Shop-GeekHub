@@ -8,15 +8,15 @@ class Backoffice::ImagesController < Backoffice::BackofficeController
   #end
 
   def destroy
-    remove_image_at_index(params[:index_id].to_i)
+    remove_image_at_index(params[:id].to_i)
     flash[:error] = "Failed deleting image" unless @product.save
-    redirect_to admin_product_path
+    redirect_to edit_admin_product_path(@product)
   end
 
   private
 
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
   end
 
   def add_more_images(new_images)

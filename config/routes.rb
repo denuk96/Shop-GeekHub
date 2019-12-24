@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'products#index', as: 'home'
-  resources :products
+  resources :products do
+    resources :images, controller: 'backoffice/images'
+  end
 
   scope :admin do
     resources :categories, controller: 'backoffice/categories', as: 'admin_categories'
-    resources :products, controller: 'backoffice/products', as: 'admin_products' do
-      resources :images, controller: 'backoffice/images'
-    end
+    resources :products, controller: 'backoffice/products', as: 'admin_products'
   end
 
   resources :users
