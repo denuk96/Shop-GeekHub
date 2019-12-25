@@ -29,17 +29,8 @@
       <%= form.text_area :price, class: "form-control"%>
     </div>
 
-    <div class="upload-preview">
-      <h3>Will be saved after submit:</h3>
-      <img />
-    </div>
-
     <div class="field">
-      <%= form.file_field :images, multiple: true, class: "file"%>
-    </div>
-
-    <div>
-      <h3>Existed images:</h3>
+      <h3>Already existed images:</h3>
       <% @product.images.each_with_index do |image, index| %>
         <li>
           <%= image_tag(image.url(:large)) %>
@@ -48,12 +39,31 @@
       <% end %>
     </div>
 
+    <div class="upload-preview field">
+      <h3>Will be overwritten after submit:</h3>
+      <img />
+    </div>
+
+    <div class="field">
+      <%= form.file_field :images, multiple: true, class: "file"%>
+    </div>
+
     <br>
     <div class="text-center actions">
       <%= form.submit 'Submit', class: "btn btn-light" %>
     </div>
   <% end %>
+
+  <div class="links">
+    <div>
+      <h3>Add to already existed images</h3>
+      <%= form_for @product, url: product_images_path(@product), method: :post do |f| %>
+        <%= f.file_field :images, multiple: true %>
+        <%= f.submit "Add More Images", class: 'btn btn-outline-info' %>
+      <% end %>
+    </div>
 </div>
+<br>
 <script>
     document.querySelector('.file').addEventListener('change', event => {
         [...event.target.files].forEach(file => {

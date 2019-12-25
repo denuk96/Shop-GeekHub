@@ -39,11 +39,13 @@
        <% end %>
      </div>
  </div>
-  <div class="links">
-    <%= link_to 'Edit', edit_admin_product_path(@product) %>
-    <%= link_to 'Destroy', admin_product_path(@product), method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Back', :back %>
+    <br>
+    <div style="font-size: 30px">
+      <%= link_to 'Edit', edit_admin_product_path(@product), class: 'btn btn-outline-light' %>
+      <%= link_to 'Destroy', admin_product_path(@product), method: :delete,
+                  data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-light' %>
+      <%= link_to 'Back', :back, class: 'btn btn-outline-light' %>
+    </div>
   </div>
 </div>
 
