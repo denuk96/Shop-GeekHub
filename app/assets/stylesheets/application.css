@@ -34,3 +34,17 @@ em {
 .field i {
     color: red;
 }
+
+.link {
+    text-decoration: none;
+    color: white;
+    opacity: 0.9;
+    transition: all 0.8s ease-out;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 1;
+    transform: scale(1.03);
+}

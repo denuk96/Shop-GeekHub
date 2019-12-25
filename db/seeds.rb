@@ -4,7 +4,7 @@ else
   puts 'User already exist'
 end
 
-Category.create([{ title: 'Book', description: 'desc' }, { title: 'Magazine', description: 'desc' }, { title: 'Manga', description: 'desc' }])
+Category.create([{ title: 'Book', description: 'description' }, { title: 'Magazine', description: 'description' }, { title: 'Manga', description: 'description' }])
 
 10.times do
   Product.create([{

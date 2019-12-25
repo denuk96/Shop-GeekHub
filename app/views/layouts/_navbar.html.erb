@@ -8,21 +8,54 @@
     <form class="form-inline">
       <%= form_tag(products_path, method: "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search", class:'form-control mr-sm-2' %>
-        <button type="submit" class="search-nav"><i class="fa fa-search"></i></button>
+        <button type="submit" class="search-nav"><i class="fa fa-search link"></i></button> <bold>|</bold>
+        <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
       <% end %>
     </form>
   </div>
-  <div class="navbar">
-      ONE MORE NAVBAR will be right here
-    <%= link_to 'admin', admin_categories_path %>
-    <p>
-      <% if current_user %>
-        Logged in as <%= current_user.email %>
-        <%= link_to 'Log out', logout_path %>
-      <% else %>
-        <%= link_to 'Sign Up', signup_path %>
-        <%= link_to 'Log in', login_path %>
-      <% end %>
-    </p>
-  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <a class="navbar-brand" href="#">Сatalog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Contacts <span class="sr-only">(current)</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Delivery</a>
+            <a class="dropdown-item" href="#">Returns & Refunds</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">How to contact with us</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">About us</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'BackOffice', admin_categories_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <div class="nav-item active dropdown">
+        <% if current_user %>
+          <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user&.email %>
+          </a>
+        <% else %>
+          <%= link_to 'Sign Up', signup_path, class: 'link' %>
+          <b> | </b>
+          <%= link_to 'Log in', login_path, class: 'link' %>
+        <% end %>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Wishes</a>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Exit', logout_path, class: 'dropdown-item' %>
+        </div>
+      </div>
+    </div>
+  </nav>
 </div>
