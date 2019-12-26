@@ -2,16 +2,22 @@
   <div class="row">
     <% if @products.present? %>
       <% @products.each do |product| %>
-        <div class="col-md-4">
+        <div class="col-sm-4">
           <%= link_to(product) do %>
-            <div class="mb-4 card text-white bg-secondary">
+            <div class="mb-4 card text-white bg-secondary ">
               <h2 class="card-header">
                 <span class="product_title"><%= product.title %></span><br>
                 <em> in <%= product.category.title %>s</em>
               </h2>
-              <div class="card-body">
-                <p class="card-text">
-                  <%=h truncate(product.description, length: 30) %>
+              <div class="card-body image_place">
+                <p class="card-text mx-auto p-0">
+                  <% if product.images? %>
+                    <% product.images.each_with_index do |image, index| %>
+                      <%= image_tag(image.url(:medium), id: index, class: "index_image") if index == 0 %>
+                    <% end %>
+                  <% else %>
+                    <%= image_tag("https://picua.org/images/2019/12/27/65c43d8420ceb532841e1d23367d2486.jpg", class:'alt_image') %>
+                  <% end %>
                 </p>
                 <div>
                   <h5 class="card-title price row">

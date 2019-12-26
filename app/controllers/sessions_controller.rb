@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user
       redirect_back_or_to home_path, notice: 'Logged in! Welcome!'
     else
-      render :new
+      redirect_to new_session_path, alert: 'Wrong email or password'
     end
   end
 

@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @products = if params[:search]
-                  Product.search(params[:search]).paginate(page: params[:page], per_page: 9)
+                  Product.search(params[:search]).order(created_at: :desc).paginate(page: params[:page], per_page: 12)
                 else
-                  Product.all.paginate(page: params[:page], per_page: 9)
+                  Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 12)
                 end
   end
 
