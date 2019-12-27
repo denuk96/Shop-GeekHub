@@ -25,11 +25,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'bootstrap-will_paginate'
+gem 'carrierwave', '~> 2.0'
 gem 'faker', '~> 2.9'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'mini_magick'
 gem 'sorcery'
-gem 'carrierwave', '~> 2.0'
-gem "mini_magick"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -60,5 +60,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-#

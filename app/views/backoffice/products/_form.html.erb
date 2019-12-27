@@ -56,10 +56,12 @@
 
   <div class="links">
     <div>
-      <h3>Add to already existed images</h3>
-      <%= form_for @product, url: product_images_path(@product), method: :post do |f| %>
-        <%= f.file_field :images, multiple: true %>
-        <%= f.submit "Add More Images", class: 'btn btn-outline-info' %>
+      <% if @product.images? %>
+        <h3>Add to already existed images</h3>
+        <%= form_for @product, url: product_images_path(@product), method: :post do |f|  %>
+          <%= f.file_field :images, multiple: true %>
+          <%= f.submit "Add More Images", class: 'btn btn-outline-info' %>
+        <% end %>
       <% end %>
     </div>
 </div>
