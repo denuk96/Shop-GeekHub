@@ -41,19 +41,27 @@
       </ul>
       <div class="nav-item active dropdown">
         <% if current_user %>
-          <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdown" role="button"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user&.email %>
           </a>
         <% else %>
-          <%= link_to 'Sign Up', signup_path, class: 'link' %>
+          <span class="link">
+            <%= link_to 'Sign Up', signup_path, class: 'link' %>
+          </span>
           <b> | </b>
-          <%= link_to 'Log in', login_path, class: 'link' %>
+          <span class="link">
+            <%= link_to 'Log in', login_path, class: 'link' %>
+          </span>
         <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" href="#">Wishes</a>
           <div class="dropdown-divider"></div>
-          <%= link_to 'Exit', logout_path, class: 'dropdown-item' %>
+          <%= link_to logout_path, class: 'dropdown-item' do %>
+           Log out <i class="fa fa-sign-out"></i>
+          <% end %>
+
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@ em {
 .link {
     text-decoration: none;
     color: white;
-    opacity: 0.9;
+    opacity: 0.85;
     transition: all 0.8s ease-out;
 }
 

@@ -7,9 +7,18 @@
       </h2>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <% @product.images.each_with_index do |image, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <%= image_tag(image.url, id: index, class: 'd-block w-100') %>
+          <% if @product.images? %>
+            <% @product.images.each_with_index do |image, index| %>
+              <div class="carousel-item <%= 'active' if index == 0 %>" data-interval="5000">
+                <%= image_tag(image.url, id: index, class: 'd-block w-100 carousel-image') %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="carousel-item active">
+              <img src="https://picua.org/images/2019/12/27/31783d15d36cb0de20e5556443e01916.jpg" class="d-block w-100 carousel-image">
+            </div>
+            <div class="carousel-item">
+              <img src="https://picua.org/images/2019/12/27/31783d15d36cb0de20e5556443e01916.jpg" class="d-block w-100 carousel-image">
             </div>
           <% end %>
         </div>
@@ -24,14 +33,14 @@
       </div>
       <div class="card-body">
         <p class="card-text">
+          <div>
+            <h5 class="card-title price row">
+              <strong class="left"><%= @product.price %></strong>
+              <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
+            </h5>
+          </div>
           <%=@product.description %>
         </p>
-        <div>
-          <h5 class="card-title price row">
-            <strong class="left"><%= @product.price %></strong>
-            <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
-          </h5>
-        </div>
       </div>
     </div>
   </div>
