@@ -12,9 +12,7 @@
               <div class="card-body image_place">
                 <p class="card-text mx-auto p-0">
                   <% if product.images? %>
-                    <% product.images.each_with_index do |image, index| %>
-                      <%= image_tag(image.url(:medium), id: index, class: "index_image") if index == 0 %>
-                    <% end %>
+                    <%= image_tag product.images.first.url(:medium), class:'index_image' %>
                   <% else %>
                     <%= image_tag("https://picua.org/images/2019/12/27/65c43d8420ceb532841e1d23367d2486.jpg", class:'alt_image') %>
                   <% end %>
