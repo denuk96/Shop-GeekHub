@@ -30,3 +30,5 @@ end
                    category_id: 3
                  }])
 end
+
+puts 'Successful'

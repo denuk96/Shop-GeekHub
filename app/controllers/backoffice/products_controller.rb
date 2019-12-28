@@ -32,7 +32,7 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
       redirect_to admin: @product
       flash[:notice] = 'Product has been edited'
     else
-      format.html { render :edit }
+      render :edit
     end
   end
 
