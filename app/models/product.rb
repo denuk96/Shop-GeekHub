@@ -15,6 +15,7 @@
 class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
   belongs_to :category
+  has_many :comments
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true

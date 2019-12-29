@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'products#index', as: 'home'
   resources :products do
     resources :images, controller: 'backoffice/images'
+    resources :comments
   end
 
   scope :admin do

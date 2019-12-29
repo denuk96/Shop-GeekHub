@@ -15,6 +15,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   attr_accessor :password, :password_confirmation
 
+  has_many :comments
+
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true, allow_nil: true
   validate :pass_val

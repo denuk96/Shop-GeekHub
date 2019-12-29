@@ -1,0 +1,19 @@
+<div class="container">
+  <%= form_with(model: [ @product, @product.comments.build ], local: true) do |form| %>
+
+    <p>
+      <%= form.label :body %><br>
+      <%= form.text_field :body %>
+    </p>
+
+    <p>
+      <%= form.label :rating %><br>
+      <%= form.text_area :rating %>
+    </p>
+
+    <p>
+      <%= form.submit"Save" %>
+    </p>
+
+  <% end %>
+</div>
