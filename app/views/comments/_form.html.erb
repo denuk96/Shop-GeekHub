@@ -1,14 +1,16 @@
 <div class="container">
   <%= form_with(model: [ @product, @product.comments.build ], local: true) do |form| %>
 
+    <div class="rating">
+      <%= form.collection_radio_buttons(:rating, [[1], [2], [3], [4], [5]], :first, :last) do |star| %>
+        <%= star.label(class: 'star') { fa_icon "star" } %>
+        <%= star.radio_button class: "radio_but" %>
+      <% end %>
+    </div>
+
     <p>
       <%= form.label :body %><br>
       <%= form.text_field :body %>
-    </p>
-
-    <p>
-      <%= form.label :rating %><br>
-      <%= form.text_area :rating %>
     </p>
 
     <p>
