@@ -36,7 +36,10 @@
           <div>
             <h5 class="card-title price row">
               <strong class="left"><%= @product.price %></strong>
-              <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
+              <span class="right">
+                <i class="fa fa-cart-arrow-down"></i>
+                <i class="fa fa-star"><%= @average_rating&.round(1) %></i>
+              </span>
             </h5>
           </div>
           <%=@product.description %>

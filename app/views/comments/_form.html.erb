@@ -1,21 +1,36 @@
 <div class="container">
-  <%= form_with(model: [ @product, @product.comments.build ], local: true) do |form| %>
-
-    <div class="rating">
-      <%= form.collection_radio_buttons(:rating, [[1], [2], [3], [4], [5]], :first, :last) do |star| %>
-        <%= star.label(class: 'star') { fa_icon "star" } %>
-        <%= star.radio_button class: "radio_but" %>
-      <% end %>
+  <div class="coments">
+    <div class="row justify-content-center ">
+      <div class="col-md-6">
+        <div class="card text-center bg-secondary comment_form">
+          <%= form_with(model: [ @product, @product.comments.build ], local: true) do |form| %>
+            <div class="card-header comment_form">
+                <span class="rating">
+                  <%= form.collection_radio_buttons(:rating, [[1], [2], [3], [4], [5]], :first, :last) do |star| %>
+                    <%= star.label(class: 'star') { fa_icon "star" } %>
+                    <%= star.radio_button class: "radio_but" %>
+                  <% end %>
+                </span>
+            </div>
+            <div class="card-body comment_form">
+              <h5 class="card-title">
+                <button class="btn btn btn-dark  btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample">
+                  <b>↓</b>Add a comment (optional)<b>↓</b>
+                </button>
+              </h5>
+              <div class="collapse form-row" id="collapseExample">
+                <div class="col-12">
+                  <%= form.text_field :body, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+            <p>
+              <%= form.submit "Send", class: 'btn btn-light btn-lg' %>
+            </p>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-    <p>
-      <%= form.label :body %><br>
-      <%= form.text_field :body %>
-    </p>
-
-    <p>
-      <%= form.submit"Save" %>
-    </p>
-
-  <% end %>
+  </div>
 </div>
