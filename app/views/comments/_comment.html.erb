@@ -13,5 +13,10 @@
       <strong>Rating:</strong>
       <%= comment.rating %>
     </p>
+
+    <p>
+      <%= link_to 'Destroy Comment', [comment.product, comment], method: :delete,
+                  data: { confirm: 'Are you sure?' }, class:'link' %>
+    </p>
   <% end %>
 </div>

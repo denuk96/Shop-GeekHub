@@ -4,7 +4,6 @@ $(document).ready(function() {
         $(this).css('color', 'white').css('font-size', '50px');
     });
 });
-
 $(document).ready(function(){
     $(".star").hover(  //
         function(){

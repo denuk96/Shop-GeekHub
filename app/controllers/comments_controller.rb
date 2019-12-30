@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_product
+  before_action :set_comment, only: :destroy
+  before_action :admin_verify, only: :destroy
 
   def index
     @product.comments = @product.comments.arrange(order: :created_at)
@@ -13,9 +15,17 @@ class CommentsController < ApplicationController
     @comment = @product.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to @product, notice: 'Comment leaved'
+      redirect_to @product, notice: 'Thank you for your opinion. You are important for us!'
     else
       redirect_to @product, alert: @comment.errors.full_messages.first
+    end
+  end
+
+  def destroy
+    if @comment.destroy
+      redirect_to @product, notice: 'Destroyed'
+    else
+      redirect_to @product, alert: 'Smth went wrong..'
     end
   end
 
@@ -27,6 +37,10 @@ class CommentsController < ApplicationController
 
   def set_comment
     @comment = @product.comments.find(params[:id])
+  end
+
+  def admin_verify
+    redirect_to home_path, alert: 'You have no rights' unless current_user&.admin?
   end
 
   def comment_params
