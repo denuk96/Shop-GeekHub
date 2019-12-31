@@ -48,3 +48,7 @@ em {
     opacity: 1;
     transform: scale(1.03);
 }
+
+#messages {
+    display:none
+}

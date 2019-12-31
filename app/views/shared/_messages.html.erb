@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="messages">
   <% if !notice.nil?  %>
     <p class="alert alert-primary" role="alert">
       <%= notice %>
@@ -9,3 +9,8 @@
     </p>
   <% end %>
 </div>
+<script>
+    $(document).ready(function(){
+        $('#messages').show(500);
+    });
+</script>
