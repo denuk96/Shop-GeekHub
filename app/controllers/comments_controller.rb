@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_product
   before_action :set_comment, only: :destroy
   before_action :admin_verify, only: :destroy
+  before_action :comment_already_exist?, only: :create
 
   def index
     @product.comments = @product.comments.arrange(order: :created_at)
@@ -43,7 +44,13 @@ class CommentsController < ApplicationController
     redirect_to home_path, alert: 'You have no rights' unless current_user&.admin?
   end
 
+  def comment_already_exist?
+    if Comment.where(user_id: current_user.id, product_id: params[:product_id]).exists?
+      redirect_to @product, alert: 'You have already commented'
+    end
+  end
+
   def comment_params
-    params.require(:comment).permit(:body, :rating, :user_id, :product_id)
+    params.require(:comment).permit(:body, :rating, :product_id)
   end
 end
