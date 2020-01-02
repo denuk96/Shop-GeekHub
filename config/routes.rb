@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :products do
     resources :images, controller: 'backoffice/images'
     resources :comments
+    collection do
+      get :recent
+      get :oldest
+      get :rating
+    end
   end
 
   scope :admin do
@@ -16,4 +21,6 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+
+
 end

@@ -7,6 +7,21 @@ class ProductsController < ApplicationController
                 end
   end
 
+  def recent
+    @products = Product.recent.paginate(page: params[:page], per_page: 12)
+    render action: :index
+  end
+
+  def oldest
+    @products = Product.oldest.paginate(page: params[:page], per_page: 12)
+    render action: :index
+  end
+
+  #def rating
+  #  @products =
+  #  render action: :index
+  #end
+
   def show
     @product = Product.find(params[:id])
     @comments = @product.comments

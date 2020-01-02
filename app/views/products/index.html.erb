@@ -1,3 +1,13 @@
+<li class="nav-item">
+  <%= link_to "Recent", recent_products_path, class: "nav-link active" %>
+</li>
+<li class="nav-item">
+  <%= link_to "Oldest", oldest_products_path, class: "nav-link active" %>
+</li>
+<li class="nav-item">
+  <%= link_to "rating", rating_products_path, class: "nav-link active" %>
+</li>
+
 <div class="container">
   <div class="row">
     <% if @products.present? %>
@@ -21,7 +31,14 @@
                 <div>
                   <h5 class="card-title price row">
                     <strong class="left"><%= product.price %></strong>
-                    <span class="right"><i class="fa fa-cart-arrow-down"></i></span>
+                    <span class="right">
+                      <span>
+                        <% total = product.comments.sum(:rating) %>
+                        <i class="fa fa-star"><%= total.to_f / product.comments.count %></i>
+                      </span>
+                      |
+                      <i class="fa fa-cart-arrow-down"></i>
+                    </span>
                   </h5>
                 </div>
               </div>

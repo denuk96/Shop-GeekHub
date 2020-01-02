@@ -19,4 +19,7 @@ class Product < ApplicationRecord
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true
+
+  scope :recent, -> { order("created_at DESC") }
+  scope :oldest, -> { order(created_at: :asc) }
 end
