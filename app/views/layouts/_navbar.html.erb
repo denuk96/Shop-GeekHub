@@ -5,13 +5,12 @@
         <img src="https://picua.org/images/2019/12/18/392d23640b342252dc54600a394c47b2.png"  width="300" height="70" alt="logo">
       </div>
     <% end %>
-    <form class="form-inline">
-      <%= form_tag(products_path, method: "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search", class:'form-control mr-sm-2' %>
-        <button type="submit" class="search-nav"><i class="fa fa-search link"></i></button> <bold>|</bold>
-        <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
-      <% end %>
-    </form>
+    <%= form_tag(products_path, method: "get", class: 'form-inline', id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search", class:'form-control mr-sm-2' %>
+      <button type="submit" class="search-nav"><i class="fa fa-search link"></i></button>
+      <bold>|</bold>
+      <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
+    <% end %>
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
