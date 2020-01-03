@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   root 'products#index', as: 'home'
 
   resources :products do
-    collection do
-      get :recent
-      get :oldest
-      get :rating
-    end
     resources :images, controller: 'backoffice/images'
     resources :comments
   end

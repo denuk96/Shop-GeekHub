@@ -1,12 +1,7 @@
-<li class="nav-item">
-  <%= link_to "Recent", recent_products_path, class: "nav-link active" %>
-</li>
-<li class="nav-item">
-  <%= link_to "Oldest", oldest_products_path, class: "nav-link active" %>
-</li>
-<li class="nav-item">
-  <%= link_to "rating", rating_products_path, class: "nav-link active" %>
-</li>
+  <%= link_to "expensive", products_path(sort: 'expensive') %>
+  <%= link_to "cheapest", products_path(sort: 'decs') %>
+  <%= link_to "oldest", products_path(sort: 'oldest') %>
+  <%= link_to "recent", products_path(sort: 'recent') %>
 
 <div class="container">
   <div class="row">

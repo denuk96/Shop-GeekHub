@@ -2,25 +2,16 @@ class ProductsController < ApplicationController
   def index
     @products = if params[:search]
                   Product.search(params[:search]).order(created_at: :desc).paginate(page: params[:page], per_page: 12)
+                elsif params[:sort] == 'cheapest'
+                  Product.all.cheapest.paginate(page: params[:page], per_page: 12)
+                elsif params[:sort] == 'expensive'
+                  Product.all.expensive.paginate(page: params[:page], per_page: 12)
+                elsif params[:sort] == 'oldest'
+                  Product.all.oldest.paginate(page: params[:page], per_page: 12)
                 else
                   Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 12)
                 end
   end
-
-  def recent
-    @products = Product.recent.paginate(page: params[:page], per_page: 12)
-    render action: :index
-  end
-
-  def oldest
-    @products = Product.oldest.paginate(page: params[:page], per_page: 12)
-    render action: :index
-  end
-
-  #def rating
-  #  @products =
-  #  render action: :index
-  #end
 
   def show
     @product = Product.find(params[:id])
