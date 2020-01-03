@@ -4,7 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  body       :string
-#  rating     :integer
+#  rating     :integer          default(0)
 #  user_id    :bigint           not null
 #  product_id :bigint           not null
 #  created_at :datetime         not null

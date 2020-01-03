@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_29_122422) do
+ActiveRecord::Schema.define(version: 2020_01_03_133029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_122422) do
 
   create_table "comments", force: :cascade do |t|
     t.string "body"
-    t.integer "rating"
+    t.integer "rating", default: 0
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_12_29_122422) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "images", default: [], array: true
+    t.integer "cached_comments_total", default: 0
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
