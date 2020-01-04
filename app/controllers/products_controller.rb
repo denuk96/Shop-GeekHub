@@ -15,6 +15,8 @@ class ProductsController < ApplicationController
                 else
                   Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 12)
                 end
+    @categories = Category.all
+    @products = @products.where(category_id: params[:category]) if params[:category].present?
   end
 
   def show
