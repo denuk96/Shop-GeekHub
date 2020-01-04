@@ -21,7 +21,7 @@ class Product < ApplicationRecord
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true
 
-  scope :recent, -> { order("created_at DESC") }
+  scope :recent, -> { order('created_at DESC') }
   scope :oldest, -> { order(created_at: :asc) }
   scope :cheapest, -> { order(price: :asc) }
   scope :expensive, -> { order('price DESC') }
