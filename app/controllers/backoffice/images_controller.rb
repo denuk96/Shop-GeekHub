@@ -3,13 +3,13 @@ class Backoffice::ImagesController < Backoffice::BackofficeController
 
   def create
     add_more_images(images_params[:images])
-    flash[:error] = 'Failed uploading images' unless @product.save
+    flash[:error] = t('controllers.images.uploading_failed') unless @product.save
     redirect_to edit_admin_product_path(@product)
   end
 
   def destroy
     remove_image_at_index(params[:id].to_i)
-    flash[:error] = 'Failed deleting image' unless @product.save
+    flash[:error] = t('controllers.images.deleting_failed') unless @product.save
     redirect_to edit_admin_product_path(@product)
   end
 

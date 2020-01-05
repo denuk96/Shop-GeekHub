@@ -5,6 +5,6 @@ class Backoffice::BackofficeController < ActionController::Base
   private
 
   def admin_verify
-    redirect_to home_path, alert: 'You have no rights' unless current_user&.admin?
+    redirect_to home_path, alert: t('controllers.admin_verify') unless current_user&.admin?
   end
 end

@@ -4,6 +4,11 @@
   <%= link_to "recent", products_path(sort: 'recent') %>
   <%= link_to "popular", products_path(sort: 'popular') %>
   <%= link_to "best", products_path(sort: 'best') %>
+  <br>
+
+  <% @categories.each do |category| %>
+    <%= link_to(category.title, products_path(category: category)) %>
+  <% end %>
 
 <div class="container">
   <div class="row">

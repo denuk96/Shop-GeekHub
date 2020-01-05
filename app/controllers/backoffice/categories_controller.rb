@@ -21,7 +21,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
     @category = Category.new(category_params)
     if @category.save
       redirect_to admin: @category
-      flash[:notice] = 'Category has been created'
+      flash[:notice] = t('controllers.categories.created')
     else
       render :new
     end
@@ -32,7 +32,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
   def update
     if @category.update_attributes(category_params)
       redirect_to admin: @category
-      flash[:notice] = 'Category has been edited'
+      flash[:notice] = t('controllers.categories.edited')
     else
       format.html { render :edit }
     end
@@ -40,7 +40,7 @@ class Backoffice::CategoriesController < Backoffice::BackofficeController
 
   def destroy
     @category.destroy
-    redirect_to admin_categories_path, notice: 'Category was successfully destroyed.'
+    redirect_to admin_categories_path, notice: t('controllers.categories.destroyed')
   end
 
   private

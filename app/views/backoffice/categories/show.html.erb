@@ -1,31 +1,31 @@
 <div class="container" >
   <div class="show">
     <p>
-      <strong>Title: </strong><h2><%= @category.title.capitalize %></h2>
+      <strong><%= t('title') %>: </strong><h2><%= @category.title.capitalize %></h2>
     </p>
     <p>
-      <strong>Description: </strong><%= @category.description.capitalize %>
+      <strong><%= t('description') %>: </strong><%= @category.description.capitalize %>
     </p>
     <p>
       <%= image_tag @category.image_url(:large), class: 'image' if @category.image? %>
     </p>
   </div>
   <div class="links">
-    <%= link_to 'Edit', edit_admin_category_path(@category), class: 'btn btn-outline-light' %>
-    <%= link_to 'Destroy', admin_category_path(@category), method: :delete,
+    <%= link_to t('edit'), edit_admin_category_path(@category), class: 'btn btn-outline-light' %>
+    <%= link_to t('destroy'), admin_category_path(@category), method: :delete,
                 data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-light' %>
-    <%= link_to 'Back', :back, class: 'btn btn-outline-light' %>
+    <%= link_to t('back'), :back, class: 'btn btn-outline-light' %>
   </div>
   <br>
-  <h4>Products in <%= @category.title.capitalize %></h4>
-  <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
+  <%= link_to t('new_product'), new_admin_product_path, class: 'btn btn-primary' %>
+  <h4><%= t('categories.show.inside') %> <%= @category.title.capitalize %></h4>
   <table>
     <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>desc</th>
-      <th>price</th>
-      <th>Actions</th>
+      <th><%= t('title') %></th>
+      <th><%= t('category') %></th>
+      <th><%= t('description') %></th>
+      <th><%= t('price') %></th>
+      <th><%= t('actions') %></th>
     </tr>
     <ul>
       <% if @category.products.present? %>
@@ -40,16 +40,16 @@
             <td><%=h truncate(products.description, length: 100) %></td>
             <td><%= products.price %></td>
             <td>
-              <%= link_to 'Show', admin_product_path(products) %>
-              <%= link_to 'Edit', edit_admin_product_path(products) %>
-              <%= link_to 'Destroy', admin_product_path(products), method: :delete,
+              <%= link_to t('show'), admin_product_path(products) %>
+              <%= link_to t('edit'), edit_admin_product_path(products) %>
+              <%= link_to t('destroy'), admin_product_path(products), method: :delete,
                             data: { confirm: 'Are you sure?' } %>
             </td>
           </tr>
         <% end %>
       <% else %>
         <td class="search alert alert-secondary" colspan="5">
-          empty..
+          <%= t('empty') %>
         </td>
       <% end %>
     </ul>
