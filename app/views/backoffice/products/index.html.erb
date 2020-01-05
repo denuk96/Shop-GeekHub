@@ -1,19 +1,47 @@
 <div class="container">
   <div class="form-inline">
     <%= form_tag(admin_products_path, method: "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search", class:'form-control' %>
+      <%= text_field_tag :search, params[:search], placeholder: t('search'), class:'form-control' %>
       <button type="submit" class="btn btn-outline-light"><i class="fa fa-search"></i></button>
     <% end %>
   </div>
-  <h1>Products</h1>
-  <%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>
+  <%= link_to t('products.new.title'), new_admin_product_path, class: 'btn btn-primary' %>
+  <h1><%= t('all_products') %></h1>
+
+  <div class="d-flex">
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('sort_by') %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to t('expensive'), admin_products_path(sort: 'expensive'), class:'dropdown-item' %>
+        <%= link_to t('cheapest'), admin_products_path(sort: 'cheapest'), class:'dropdown-item' %>
+        <%= link_to t('oldest'), admin_products_path(sort: 'oldest'), class:'dropdown-item' %>
+        <%= link_to t('recent'), admin_products_path(sort: 'recent'), class:'dropdown-item' %>
+        <%= link_to t('popular'), admin_products_path(sort: 'popular'), class:'dropdown-item' %>
+        <%= link_to t('best'), admin_products_path(sort: 'best'), class:'dropdown-item' %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('all_categories') %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% @categories.each do |category| %>
+          <%= link_to(category.title, admin_products_path(category: category), class:'dropdown-item') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <table>
     <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Actions</th>
+      <th><%= t('title') %></th>
+      <th><%= t('category') %></th>
+      <th><%= t('description') %></th>
+      <th><%= t('price') %></th>
+      <th><%= t('avg_rating') %></th>
+      <th><%= t('times_rated') %></th>
+      <th><%= t('actions') %></th>
     </tr>
     <ul>
       <% if @products.present? %>
@@ -31,17 +59,22 @@
             </td>
             <td><%=h truncate(products.description, length: 100) %></td>
             <td><%= products.price %></td>
+            <th>
+              <% total = products.comments.sum(:rating) %>
+              <i class="fa fa-star"><%= total.to_f / products.comments.count %></i>
+            </th>
+            <td><%= products.cached_comments_total %></td>
             <td>
-              <%= link_to 'Show', admin_product_path(products) %>
-              <%= link_to 'Edit', edit_admin_product_path(products) %>
-              <%= link_to 'Destroy', admin_product_path(products), method: :delete,
-                            data: { confirm: 'Are you sure?' } %>
+              <%= link_to t('show'), admin_product_path(products) %>
+              <%= link_to t('edit'), edit_admin_product_path(products) %>
+              <%= link_to t('destroy'), admin_product_path(products), method: :delete,
+                            data: { confirm: t('confirmation') } %>
             </td>
           </tr>
         <% end %>
       <% else %>
-        <td class="search alert alert-secondary">
-          There are no items containing the term(s) <%= params[:search] %>.
+        <td class="search alert alert-secondary" colspan="5">
+          <%= t('found_nothing') %> <%= params[:search] %>.
         </td>
       <% end %>
     </ul>

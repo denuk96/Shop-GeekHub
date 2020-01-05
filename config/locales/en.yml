@@ -37,11 +37,25 @@ en:
       title: 'Editing Category'
     show:
       inside: 'Products in '
+  products:
+    new:
+      title: 'New Product'
+    edit:
+      title: 'Editing Product'
   backoffice:
     categories:
       form:
         submit:
           '%{action} category'
+    products:
+      form:
+        existed_images: 'Already existed images: '
+        overiting_notice: 'Will be overwritten after submit by: '
+        add_image: 'Add to already existed images '
+        add_more: 'Add more images'
+        submit:
+          '%{action} product'
+
 
 
   create: 'Create'
@@ -58,8 +72,19 @@ en:
   search: 'Search'
   new_product: 'New Product'
   all_categories: 'All Categories'
+  all_products: 'All Products'
   found_nothing: 'We have not found anything like a '
   confirmation: 'Are you sure?'
+
+  expensive: 'expensive'
+  cheapest: 'cheapest'
+  oldest: 'oldest'
+  recent: 'recent'
+  popular: 'popular'
+  best: 'best'
+  avg_rating: 'Rating average'
+  times_rated: 'Times rated'
+  sort_by: 'Sort by'
 
 
 

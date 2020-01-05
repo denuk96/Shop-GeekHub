@@ -2,8 +2,14 @@ en:
   activerecord:
     models:
       category: 'Category'
+      product: 'Product'
     attributes:
       category:
         title: 'Title'
         description: 'Description'
         image: 'Image'
+      product:
+        title: 'Title'
+        description: 'Description'
+        image: 'Image'
+        price: 'Price'
