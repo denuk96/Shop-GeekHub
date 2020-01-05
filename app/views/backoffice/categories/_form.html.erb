@@ -1,7 +1,7 @@
 <%= form_with(model: [ :admin, @category ],local: true) do |form| %>
   <% if @category.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@category.errors.count, "") %><%= t('common.errors') %></h2>
       <ul>
         <% @category.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -26,6 +26,6 @@
 
   <br>
   <div class="text-center actions">
-    <%= form.submit 'Submit', class: "btn btn-light" %>
+    <%= form.submit t('.submit', action: @category.new_record? ? t('create') : t('edit')), class: "btn btn-light" %>
   </div>
 <% end %>

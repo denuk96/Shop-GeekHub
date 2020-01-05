@@ -30,6 +30,7 @@ gem 'faker', '~> 2.9'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'mini_magick'
 gem 'sorcery'
+gem 'russian', '~> 0.6.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

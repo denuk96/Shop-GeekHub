@@ -30,4 +30,36 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  categories:
+    new:
+      title: 'New Category'
+    edit:
+      title: 'Editing Category'
+    show:
+      inside: 'Products in '
+  backoffice:
+    categories:
+      form:
+        submit:
+          '%{action} category'
+
+
+  create: 'Create'
+  edit: 'Edit'
+  category: 'Category'
+  title: 'Title'
+  description: 'Description'
+  destroy: 'Destroy'
+  price: 'Price'
+  actions: 'Actions'
+  back: 'Back'
+  show: 'Show'
+  empty: 'Empty..'
+  search: 'Search'
+  new_product: 'New Product'
+  all_categories: 'All Categories'
+  found_nothing: 'We have not found anything like a '
+  confirmation: 'Are you sure?'
+
+
+
