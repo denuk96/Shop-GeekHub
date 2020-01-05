@@ -55,6 +55,19 @@ en:
         add_more: 'Add more images'
         submit:
           '%{action} product'
+  controllers:
+    admin_verify: 'You have no right'
+    categories:
+      created: 'Category has been created'
+      edited: 'Category has been edited'
+      destroyed: 'Category has been destroyed'
+    products:
+      created: 'Product has been created'
+      edited: 'Product has been edited'
+      destroyed: 'Product has been destroyed'
+    images:
+      uploading_failed: 'Failed uploading images'
+      deleting_failed: 'Failed deleting image'
 
 
 
@@ -71,8 +84,8 @@ en:
   empty: 'Empty..'
   search: 'Search'
   new_product: 'New Product'
-  all_categories: 'All Categories'
-  all_products: 'All Products'
+  all_categories: 'Categories'
+  all_products: 'Products'
   found_nothing: 'We have not found anything like a '
   confirmation: 'Are you sure?'
 
