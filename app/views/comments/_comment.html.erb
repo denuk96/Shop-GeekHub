@@ -1,22 +1,22 @@
 <div class="container">
   <% if comment.body? %>
     <p>
-      <strong>Commenter:</strong>
+      <strong><%= t('comments.show.commenter') %></strong>
       <%= comment.user.email %>
     </p>
 
     <p>
-      <strong>Comment:</strong>
+      <strong><%= t('comments.show.comment') %></strong>
       <%= comment.body %>
     </p>
     <p>
-      <strong>Rating:</strong>
+      <strong><%= t('comments.show.rating') %></strong>
       <%= comment.rating %>
     </p>
 
     <p>
-      <%= link_to 'Destroy Comment', [comment.product, comment], method: :delete,
-                  data: { confirm: 'Are you sure?' }, class:'link' %>
+      <%= link_to t('destroy'), [comment.product, comment], method: :delete,
+                  data: { confirm: t('confirmation') }, class:'link' %>
     </p>
   <% end %>
 </div>

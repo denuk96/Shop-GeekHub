@@ -16,7 +16,7 @@
               <h5 class="card-title">
                 <button class="btn btn btn-dark  btn-block btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample"
                         aria-expanded="false" aria-controls="collapseExample">
-                  <b>↓</b>Add a comment (optional)<b>↓</b>
+                  <b>↓</b> <%= t('.addcomment') %><b>↓</b>
                 </button>
               </h5>
               <div class="collapse form-row" id="collapseExample">
@@ -26,7 +26,7 @@
               </div>
             </div>
             <p>
-              <%= form.submit "Send", class: 'btn btn-light btn-lg' %>
+              <%= form.submit t('send'), class: 'btn btn-light btn-lg' %>
             </p>
           <% end %>
         </div>

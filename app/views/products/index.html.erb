@@ -19,7 +19,7 @@
             <div class="mb-4 card text-white bg-secondary ">
               <h2 class="card-header">
                 <span class="product_title"><%= product.title %></span><br>
-                <em> in <%= product.category.title %>s</em>
+                <em><%= product.category.title %></em>
               </h2>
               <div class="card-body image_place">
                 <p class="card-text mx-auto p-0">
@@ -50,7 +50,9 @@
       <% end %>
     <% else %>
       <div class="container">
-        <p class="search alert alert-secondary">There are no items containing the term(s) <%= params[:search] %>.</p>
+        <p class="search alert alert-secondary">
+          <%= t('found_nothing') %> <%= params[:search] %>.
+        </p>
       </div>
     <% end %>
   </div>

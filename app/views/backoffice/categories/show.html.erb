@@ -25,6 +25,8 @@
       <th><%= t('category') %></th>
       <th><%= t('description') %></th>
       <th><%= t('price') %></th>
+      <th><%= t('avg_rating') %></th>
+      <th><%= t('times_rated') %></th>
       <th><%= t('actions') %></th>
     </tr>
     <ul>
@@ -39,6 +41,11 @@
             <td><%= products.category.title %> </td>
             <td><%=h truncate(products.description, length: 100) %></td>
             <td><%= products.price %></td>
+            <th>
+              <% total = products.comments.sum(:rating) %>
+              <i class="fa fa-star"><%= total.to_f / products.comments.count %></i>
+            </th>
+            <td><%= products.cached_comments_total %></td>
             <td>
               <%= link_to t('show'), admin_product_path(products) %>
               <%= link_to t('edit'), edit_admin_product_path(products) %>
@@ -48,7 +55,7 @@
           </tr>
         <% end %>
       <% else %>
-        <td class="search alert alert-secondary" colspan="5">
+        <td class="search alert alert-secondary" colspan="8">
           <%= t('empty') %>
         </td>
       <% end %>

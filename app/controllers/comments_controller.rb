@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @comment = @product.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      redirect_to @product, notice: 'Thank you for your opinion. You are important for us!'
+      redirect_to @product, notice: t('controllers.comments.create')
     else
       redirect_to @product, alert: @comment.errors.full_messages.first
     end
@@ -24,9 +24,9 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment.destroy
-      redirect_to @product, notice: 'Destroyed'
+      redirect_to @product, notice: t('controllers.comments.destroy.successful')
     else
-      redirect_to @product, alert: 'Smth went wrong..'
+      redirect_to @product, alert: t('controllers.comments.destroy.failed')
     end
   end
 
@@ -41,12 +41,12 @@ class CommentsController < ApplicationController
   end
 
   def admin_verify
-    redirect_to home_path, alert: 'You have no rights' unless current_user&.admin?
+    redirect_to home_path, alert: t('controllers.comments.admin_verify') unless current_user&.admin?
   end
 
   def comment_already_exist?
     if Comment.where(user_id: current_user.id, product_id: params[:product_id]).exists?
-      redirect_to @product, alert: 'You have already commented'
+      redirect_to @product, alert: t('controllers.comments.already_commented')
     end
   end
 
