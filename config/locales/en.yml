@@ -11,6 +11,16 @@ en:
       title: 'New Product'
     edit:
       title: 'Editing Product'
+    show:
+      thanks_feedback: 'Thank you for your feedback!'
+      offer_login: 'Log in to leave feedback!'
+  comments:
+    form:
+      addcomment: 'Add a comment (optional) '
+    show:
+      commenter: 'Commenter: '
+      comment: 'Comment: '
+      rating: 'Rating: '
   backoffice:
     categories:
       form:
@@ -37,9 +47,25 @@ en:
     images:
       uploading_failed: 'Failed uploading images'
       deleting_failed: 'Failed deleting image'
+  navbar:
+    contacts: 'Contacts'
+    delivery: 'Delivery'
+    return: 'Returns & Refunds'
+    how_to_contact: 'How to contact with us'
+    about: 'About us'
+    backoffice: 'BackOffice'
+    profile: 'Profile'
+    authentication:
+      signup: 'Sign Up'
+      login: 'Log in'
+      logout: 'Log out'
+  session:
+    email: 'Email'
+    password: 'Password'
+    login: 'Login'
 
 
-
+  send: 'Send'
   create: 'Create'
   edit: 'Edit'
   category: 'Category'

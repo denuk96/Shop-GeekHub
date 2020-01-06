@@ -1,7 +1,7 @@
 <%= form_for @user do |form| %>
   <% if user.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(user.errors.count, "") %> <%= t('common.errors') %> </h2>
       <ul>
         <% user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -26,6 +26,6 @@
   </div>
 
   <div class="field">
-    <%= form.submit class:'btn btn-outline-light btn-lg btn-block'%>
+    <%= form.submit t('navbar.authentication.signup'), class:'btn btn-outline-light btn-lg btn-block'%>
   </div>
 <% end %>
