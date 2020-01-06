@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to login_path, notice: 'Welcome! Now you can log in!'
+      redirect_to login_path, notice: t('controllers.users.create')
     else
       render :new
     end

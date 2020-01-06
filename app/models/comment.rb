@@ -15,5 +15,5 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :product, counter_cache: :cached_comments_total
 
-  validates :rating, presence: true, inclusion: { in: 1..5, message: 'should be between 1 to 5' }
+  validates :rating, presence: true, inclusion: { in: 1..5 }
 end

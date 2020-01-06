@@ -47,6 +47,19 @@ en:
     images:
       uploading_failed: 'Failed uploading images'
       deleting_failed: 'Failed deleting image'
+    comments:
+      create: 'Thank you for your opinion. You are important for us!'
+      destroy:
+        successful: 'Destroyed'
+        failed: 'Smth went wrong..'
+      admin_verify: 'You have no rights'
+      already_commented: 'You have already commented'
+    sessions:
+      logged_in: 'Logged in! Welcome!'
+      failed: 'Wrong email or password'
+      logget_out: 'Logged out!'
+    users:
+      create: 'Welcome! Now you can log in!'
   navbar:
     contacts: 'Contacts'
     delivery: 'Delivery'

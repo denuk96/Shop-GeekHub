@@ -6,14 +6,14 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:email], params[:password])
     if user
-      redirect_back_or_to home_path, notice: 'Logged in! Welcome!'
+      redirect_back_or_to home_path, notice: t('controllers.sessions.logged_in')
     else
-      redirect_to new_session_path, alert: 'Wrong email or password'
+      redirect_to new_session_path, alert: t('controllers.sessions.failed')
     end
   end
 
   def destroy
     logout
-    redirect_to home_path, notice: 'Logged out!'
+    redirect_to home_path, notice: t('controllers.sessions.logget_out')
   end
 end
