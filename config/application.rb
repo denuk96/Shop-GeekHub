@@ -17,6 +17,6 @@ module Shop
     # the framework and any gems in your application.
     config.time_zone = 'Kyiv'
     config.i18n.default_locale = :en
-    I18n.locale = :ru
+    config.i18n.available_locales = %i[en ru]
   end
 end
