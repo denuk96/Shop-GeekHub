@@ -1,1 +1,108 @@
 ru:
+  categories:
+    new:
+      title: 'Новая Категория'
+    edit:
+      title: 'Редактировать категорию'
+    show:
+      inside: 'Продукты в '
+  products:
+    new:
+      title: 'Новый продукт'
+    edit:
+      title: 'Редактирование продукта'
+    show:
+      thanks_feedback: 'Спасибо за ваш отзыв!'
+      offer_login: 'Войдите что бы оставлять отзывы!'
+  comments:
+    form:
+      addcomment: 'Добавить комментарий (опционально) '
+    show:
+      commenter: 'Автор: '
+      comment: 'Коментарий: '
+      rating: 'Рейтинг: '
+  backoffice:
+    categories:
+      form:
+        submit:
+          '%{action} категорию'
+    products:
+      form:
+        existed_images: 'Уже существующие изображения: '
+        overiting_notice: 'Будет перезаписано после отправки этими: '
+        add_image: 'Добавить к уже существующим изображениям '
+        add_more: 'Добавить ещё изображения'
+        submit:
+          '%{action} продукт'
+  controllers:
+    admin_verify: 'У вас нет прав'
+    categories:
+      created: 'Категория была создана'
+      edited: 'Категория успешно отредактировано'
+      destroyed: 'Категория удалена'
+    products:
+      created: 'Продукт был создан'
+      edited: 'Продукт успешно отредактирован'
+      destroyed: 'Продукт удалён'
+    images:
+      uploading_failed: 'Ошибка загрузки'
+      deleting_failed: 'Ошибка удаления'
+    comments:
+      create: 'Спасибо за ваше мнение, оно важно для нас!'
+      destroy:
+        successful: 'Удалено'
+        failed: 'Что-то пошло не так..'
+      admin_verify: 'У вас нет прав'
+      already_commented: 'Вы уже оставили свой отзыв'
+    sessions:
+      logged_in: 'Добро пожаловать!'
+      failed: 'Неверная почта или пароль'
+      logget_out: 'Вы вышли'
+    users:
+      create: 'Добро пожаловать, теперь вы можете зайти'
+  navbar:
+    contacts: 'Контакты'
+    delivery: 'Доставка'
+    return: 'Возращение и обмен'
+    how_to_contact: 'Как с нами связаться'
+    about: 'Про нас'
+    backoffice: 'Админ Панель'
+    profile: 'Профиль'
+    authentication:
+      signup: 'Регистрация'
+      login: 'Войти'
+      logout: 'Выйти'
+  session:
+    email: 'Почта'
+    password: 'Пароль'
+    login: 'Войти'
+
+
+  send: 'Отправить'
+  create: 'Создать'
+  edit: 'Редаткировать'
+  category: 'Категория'
+  title: 'Заголовок'
+  description: 'Описание'
+  destroy: 'Удалить'
+  price: 'Цена'
+  actions: 'Действие'
+  back: 'Назад'
+  show: 'Показать'
+  empty: 'Пусто..'
+  search: 'Поиск'
+  new_product: 'Новый продукт'
+  all_categories: 'Категории'
+  all_products: 'Продукты'
+  found_nothing: 'Мы ничего не нашли похожее на '
+  confirmation: 'Вы уверенны?'
+
+  expensive: 'Дорогие'
+  cheapest: 'Дешевые'
+  oldest: 'Старые'
+  recent: 'Новые'
+  popular: 'Популярные'
+  best: 'Лучшие'
+  avg_rating: 'Средний рейтинг'
+  times_rated: 'Количество отзывов'
+  sort_by: 'Сортировать'

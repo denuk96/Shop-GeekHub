@@ -1,4 +1,4 @@
-class Backoffice::BackofficeController < ActionController::Base
+class Backoffice::BackofficeController < ApplicationController
   before_action :admin_verify
   layout 'backoffice.html.erb'
 

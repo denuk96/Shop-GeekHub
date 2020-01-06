@@ -1,9 +1,19 @@
 ru:
   activerecord:
     models:
-      category: 'Category'
+      category: 'Категория'
+      product: 'Продукт'
     attributes:
       category:
-        title: 'Title'
-        description: 'Description'
-        image: 'Image'
+        title: 'Заголовок'
+        description: 'Описание'
+        image: 'Изображение'
+      product:
+        title: 'Заголовок'
+        description: 'Описание'
+        image: 'Изображение'
+        price: 'Цена'
+      user:
+        email: 'Почта'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
