@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
   has_many :product_categories
   has_many :categories, through: :product_categories
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true
