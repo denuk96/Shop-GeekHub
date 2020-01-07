@@ -13,14 +13,10 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
                 elsif params[:sort] == 'popular'
                   Product.all.order('cached_comments_total DESC').paginate(page: params[:page], per_page: 20)
                 elsif params[:sort] == 'best'
-                  Product.all.average_rating.paginate(page: params[:page], per_page: 20)
-
-                  # Product.select('product_id, avg(comments.rating')
-                  #       .joins(:comments)
-                  #       .group('product_id')
-                  #       .order('avg(comments.rating) desc')
-                  #       .paginate(page: params[:page], per_page: 12)
-
+                  Product.joins(:comments)
+                      .group(:id)
+                      .order('AVG(comments.rating) DESC')
+                      .paginate(page: params[:page], per_page: 20)
                 else
                   Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
                 end

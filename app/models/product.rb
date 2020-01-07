@@ -25,5 +25,4 @@ class Product < ApplicationRecord
   scope :oldest, -> { order(created_at: :asc) }
   scope :cheapest, -> { order(price: :asc) }
   scope :expensive, -> { order('price DESC') }
-  scope :average_rating, -> { includes(:comments).order('comments.rating') }
 end
