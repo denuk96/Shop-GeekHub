@@ -6,7 +6,6 @@
 #  title                 :string
 #  description           :text
 #  price                 :decimal(, )
-#  category_id           :bigint
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  images                :string           default([]), is an Array
@@ -26,5 +25,4 @@ class Product < ApplicationRecord
   scope :oldest, -> { order(created_at: :asc) }
   scope :cheapest, -> { order(price: :asc) }
   scope :expensive, -> { order('price DESC') }
-  scope :average_rating, -> { includes(:comments).order('comments.rating') }
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_221642) do
+ActiveRecord::Schema.define(version: 2020_01_07_085413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,12 +59,10 @@ ActiveRecord::Schema.define(version: 2020_01_06_221642) do
     t.string "title"
     t.text "description"
     t.decimal "price"
-    t.bigint "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "images", default: [], array: true
     t.integer "cached_comments_total", default: 0
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,5 +78,4 @@ ActiveRecord::Schema.define(version: 2020_01_06_221642) do
   add_foreign_key "cart_items", "carts"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
-  add_foreign_key "products", "categories"
 end
