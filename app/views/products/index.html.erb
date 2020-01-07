@@ -15,13 +15,20 @@
     <% if @products.present? %>
       <% @products.each do |product| %>
         <div class="col-sm-4">
-          <%= link_to(product) do %>
-            <div class="mb-4 card text-white bg-secondary ">
-              <h2 class="card-header">
-                <span class="product_title"><%= product.title %></span><br>
-                <em><%= product.category.title %></em>
-              </h2>
-              <div class="card-body image_place">
+          <div class="mb-4 card text-white bg-secondary ">
+            <h2 class="card-header">
+              <span class="product_title">
+                <%= link_to product.title, (product), class: 'link' %>
+              </span>
+              <br>
+              <em>
+                <% product.categories.each do |category| %>
+                  <%= link_to category.title, products_path(category: category), class: 'link' %>
+                <% end %>
+              </em>
+            </h2>
+            <div class="card-body image_place">
+              <%= link_to(product) do %>
                 <p class="card-text mx-auto p-0">
                   <% if product.images? %>
                     <%= image_tag product.images.first.url(:medium), class:'index_image' %>
@@ -30,10 +37,11 @@
                                   class:'alt_image') %>
                   <% end %>
                 </p>
-                <div>
-                  <h5 class="card-title price row">
-                    <strong class="left"><%= product.price %></strong>
-                    <span class="right">
+              <% end %>
+              <div>
+                <h5 class="card-title price row">
+                  <strong class="left"><%= product.price %></strong>
+                  <span class="right">
                       <span>
                         <% total = product.comments.sum(:rating) %>
                         <i class="fa fa-star"><%= total.to_f / product.comments.count %></i>
@@ -41,11 +49,10 @@
                       |
                       <i class="fa fa-cart-arrow-down"></i>
                     </span>
-                  </h5>
-                </div>
+                </h5>
               </div>
             </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
     <% else %>

@@ -3,7 +3,11 @@
     <div class="mb-12 card text-white bg-secondary">
       <h2 class="card-header">
         <span class="product_title"><%= @product.title %></span><br>
-        <em><%= @product.category.title %></em>
+        <em>
+          <% @product.categories.each do |category| %>
+            <%= link_to category.title, products_path(category: category), class: 'link' %>
+          <% end %>
+        </em>
       </h2>
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">

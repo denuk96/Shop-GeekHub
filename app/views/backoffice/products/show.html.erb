@@ -5,8 +5,8 @@
     </p>
     <p>
       <strong><%= t('category') %>: </strong>
-      <%= link_to admin_category_path(@product.category_id) do %>
-        <%= @product.category.title %>
+      <% @product.categories.each do |category| %>
+        <%= link_to category.title, admin_category_path(category.id), class: 'link' %>
       <% end %>
     </p>
     <p>
