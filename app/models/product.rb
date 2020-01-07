@@ -6,7 +6,7 @@
 #  title                 :string
 #  description           :text
 #  price                 :decimal(, )
-#  category_id           :bigint           not null
+#  category_id           :bigint
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  images                :string           default([]), is an Array
@@ -15,7 +15,8 @@
 
 class Product < ApplicationRecord
   mount_uploaders :images, ImageUploader
-  belongs_to :category
+  has_many :product_categories
+  has_many :categories, through: :product_categories
   has_many :comments
 
   validates :title, :description, :price, presence: true
