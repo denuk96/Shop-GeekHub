@@ -10,7 +10,10 @@ body {
     background-image: url(https://picua.org/images/2019/12/17/022cb3b921994985449245a411166609.jpg);
     background-size: cover;
     color: #DADADA;
+    width: 100%;
+    height: 100%;
 }
+
 em {
     font-size: 15px;
 }
@@ -22,6 +25,7 @@ em {
     float: left;
     background-color: transparent;
 }
+
 .search-nav i{
     color: #DADADA;
     font-size: 25px;
