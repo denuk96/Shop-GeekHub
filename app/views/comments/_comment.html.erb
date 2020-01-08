@@ -1,22 +1,31 @@
 <div class="container">
   <% if comment.body? %>
-    <p>
-      <strong><%= t('comments.show.commenter') %></strong>
-      <%= comment.user.email %>
-    </p>
-
-    <p>
-      <strong><%= t('comments.show.comment') %></strong>
-      <%= comment.body %>
-    </p>
-    <p>
-      <strong><%= t('comments.show.rating') %></strong>
-      <%= comment.rating %>
-    </p>
-
-    <p>
-      <%= link_to t('destroy'), [comment.product, comment], method: :delete,
-                  data: { confirm: t('confirmation') }, class:'link' %>
-    </p>
+    <div class="coments">
+      <div class="row justify-content-center ">
+        <div class="col-md-6">
+          <div class="card text-center bg-secondary comment_form">
+            <div class="card-header comment_form">
+                <span class="show_rating">
+                  <% comment.rating.times do %>
+                      <i class="fa fa-star"></i>
+                  <% end %>
+                </span>
+                <div class="card-body comment_form text-left m-2">
+                  <p class="card-title ">
+                    <i><%= comment.user.email %></i>
+                  </p>
+                  <p class="i_comment">
+                    <%= comment.body %>
+                  </p>
+                  <p>
+                    <%= link_to t('destroy'), [comment.product, comment], method: :delete,
+                                data: { confirm: t('confirmation') }, class:'delete_comment' if current_user&.admin? %>
+                  </p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>

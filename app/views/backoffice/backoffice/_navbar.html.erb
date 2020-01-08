@@ -6,11 +6,11 @@
       <li><%= link_to t('all_products'), admin_products_path, class: 'nav-link' %></li>
       <li>
         <% if I18n.locale == :ru  %>
-          <%= link_to admin_categories_path(locale: :en),class: 'nav-link' do %>
+          <%= link_to url_for(locale: :en),class: 'nav-link' do %>
             <i class="fa fa-globe"><b>RU</b></i>
           <% end %>
         <% else %>
-          <%= link_to admin_categories_path(locale: :ru),class: 'nav-link' do %>
+          <%= link_to url_for(locale: :ru),class: 'nav-link' do %>
             <i class="fa fa-globe"><b>EN</b></i>
           <% end %>
         <% end %>

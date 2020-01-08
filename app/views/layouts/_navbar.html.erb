@@ -60,16 +60,16 @@
           </a>
         </li>
         <li class="nav-item">
-          <%= link_to t('navbar.backoffice'), admin_categories_path, class: 'nav-link' %>
+          <%= link_to t('navbar.backoffice'), admin_categories_path, class: 'nav-link' if current_user&.admin? %>
         </li>
       </ul>
       <span class="p-2">
           <% if I18n.locale == :ru  %>
-            <%= link_to home_path(locale: :en),class: 'link' do %>
+            <%= link_to url_for(locale: :en),class: 'link' do %>
               <i class="fa fa-globe"><b>RU</b></i>
             <% end %>
           <% else %>
-            <%= link_to home_path(locale: :ru),class: 'link' do %>
+            <%= link_to url_for(locale: :ru),class: 'link' do %>
               <i class="fa fa-globe"><b>EN</b></i>
             <% end %>
           <% end %>
