@@ -1,16 +1,19 @@
-  <%= link_to "expensive", products_path(sort: 'expensive') %>
-  <%= link_to "cheapest", products_path(sort: 'cheapest') %>
-  <%= link_to "oldest", products_path(sort: 'oldest') %>
-  <%= link_to "recent", products_path(sort: 'recent') %>
-  <%= link_to "popular", products_path(sort: 'popular') %>
-  <%= link_to "best", products_path(sort: 'best') %>
-  <br>
-
-  <%  @categories.each do |category| %>
-    <%= link_to(category.title, products_path(category: category)) %>
-  <% end %>
-
 <div class="container">
+  <div class="d-flex">
+    <div class="dropdown">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('sort_by') %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <%= link_to "expensive", products_path(sort: 'expensive'), class:'dropdown-item' %>
+        <%= link_to "cheapest", products_path(sort: 'cheapest'), class:'dropdown-item' %>
+        <%= link_to "oldest", products_path(sort: 'oldest'), class:'dropdown-item' %>
+        <%= link_to "recent", products_path(sort: 'recent'), class:'dropdown-item' %>
+        <%= link_to "popular", products_path(sort: 'popular'), class:'dropdown-item' %>
+        <%= link_to "best", products_path(sort: 'best'), class:'dropdown-item' %>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <% if @products.present? %>
       <% @products.each do |product| %>
@@ -44,7 +47,8 @@
                   <span class="right">
                       <span>
                         <% total = product.comments.sum(:rating) %>
-                        <i class="fa fa-star"><%= total.to_f / product.comments.count %></i>
+                        <% average = total.to_f / product.comments.count %>
+                        <i class="fa fa-star"><%= average.round(1) %></i>
                       </span>
                       |
                       <i class="fa fa-cart-arrow-down"></i>

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  
   def index
     @products = if params[:search]
                   Product.search(params[:search]).order(created_at: :desc).paginate(page: params[:page], per_page: 12)
@@ -18,7 +19,6 @@ class ProductsController < ApplicationController
                 else
                   Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 12)
                 end
-    @categories = Category.all
     if params[:category]
       @category = Category.find_by(id: params[:category])
       @products = @category.products.paginate(page: params[:page], per_page: 20)
@@ -27,8 +27,5 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @comments = @product.comments
-    total = @comments&.sum(:rating)
-    @average_rating = total.to_f / @comments&.count
   end
 end

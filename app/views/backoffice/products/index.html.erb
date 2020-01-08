@@ -61,7 +61,8 @@
             <td><%= products.price %></td>
             <th>
               <% total = products.comments.sum(:rating) %>
-              <i class="fa fa-star"><%= total.to_f / products.comments.count %></i>
+              <% average = total.to_f / products.comments.count %>
+              <i class="fa fa-star"><%= average.round(1) %></i>
             </th>
             <td><%= products.cached_comments_total %></td>
             <td>

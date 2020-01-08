@@ -10,34 +10,36 @@ Category.create([{ title: 'Book', description: 'description' }, { title: 'Magazi
   Product.create([{
                    title: Faker::Book.title,
                    description: Faker::Quotes::Shakespeare.king_richard_iii_quote,
-                   price: rand(300..999)
+                   price: rand(100..999)
                  }])
 end
+
 10.times do
   Product.create([{
                    title: Faker::Book.title,
                    description: Faker::Quotes::Shakespeare.as_you_like_it_quote,
-                   price: rand(300..1999)
+                   price: rand(100..999)
                  }])
 end
+
 10.times do
   Product.create([{
                    title: Faker::Book.title,
                    description: Faker::Quotes::Shakespeare.romeo_and_juliet_quote,
-                   price: rand(300..1999)
+                   price: rand(100..999)
                  }])
 end
 
-90.times do
+60.times do
   ProductCategory.create([{ category_id: rand(1..3), product_id: rand(1..30) }])
 end
 
-20.times do
-  User.create([{ email: 'user' + rand(1..20).to_s + '@example.com', password: 'AdminPassword' }])
+30.times do
+  User.create([{ email: 'user' + rand(100..400).to_s + '@example.com', password: 'AdminPassword' }])
 end
 
-50.times do
-  Comment.create([{ product_id: rand(1..30), user_id: rand(1..20), rating: rand(1..5) }])
+60.times do
+  Comment.create([{ product_id: rand(1..30), user_id: rand(1..30), rating: rand(1..5) }])
 end
 
-puts 'Successful'
+puts 'Seeded'

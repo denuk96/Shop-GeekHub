@@ -14,18 +14,16 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
                   Product.all.order('cached_comments_total DESC').paginate(page: params[:page], per_page: 20)
                 elsif params[:sort] == 'best'
                   Product.joins(:comments)
-                      .group(:id)
-                      .order('AVG(comments.rating) DESC')
-                      .paginate(page: params[:page], per_page: 20)
+                         .group(:id)
+                         .order('AVG(comments.rating) DESC')
+                         .paginate(page: params[:page], per_page: 20)
                 else
                   Product.all.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
                 end
-    @categories = Category.all
     if params[:category]
       @category = Category.find_by(id: params[:category])
       @products = @category.products.paginate(page: params[:page], per_page: 20)
     end
-    # @products = Product.includes(:categories).where(id: params[:category]).paginate(page: params[:page], per_page: 20)
   end
 
   def show; end

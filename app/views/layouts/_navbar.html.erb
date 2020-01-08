@@ -14,9 +14,23 @@
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-    <a class="navbar-brand" href="#">
-      <%= t('all_categories') %>
-    </a>
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= t('all_categories') %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% @categories&.each do |category| %>
+          <%= link_to products_path(category: category), class:'dropdown-item' do %>
+            <span>
+              <%= category&.title %>
+              <span class="badge badge-dark">
+                <%= category&.products.count %>
+              </span>
+            </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,6 +63,17 @@
           <%= link_to t('navbar.backoffice'), admin_categories_path, class: 'nav-link' %>
         </li>
       </ul>
+      <span class="p-2">
+          <% if I18n.locale == :ru  %>
+            <%= link_to home_path(locale: :en),class: 'link' do %>
+              <i class="fa fa-globe"><b>RU</b></i>
+            <% end %>
+          <% else %>
+            <%= link_to home_path(locale: :ru),class: 'link' do %>
+              <i class="fa fa-globe"><b>EN</b></i>
+            <% end %>
+          <% end %>
+        </span>
       <div class="nav-item active dropdown">
         <% if current_user %>
           <a class="nav-link dropdown-toggle link" href="#" id="navbarDropdown" role="button"
@@ -77,8 +102,3 @@
     </div>
   </nav>
 </div>
-
-<ul>
-  <li><%= link_to 'English', home_path(locale: :en) %></li>
-  <li><%= link_to 'Русский', home_path(locale: :ru) %></li>
-</ul>
