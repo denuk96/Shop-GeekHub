@@ -13,6 +13,7 @@ Category.create([{ title: 'Book', description: 'description' }, { title: 'Magazi
                    price: rand(100..999)
                  }])
 end
+
 10.times do
   Product.create([{
                    title: Faker::Book.title,
@@ -20,6 +21,7 @@ end
                    price: rand(100..999)
                  }])
 end
+
 10.times do
   Product.create([{
                    title: Faker::Book.title,
@@ -28,21 +30,16 @@ end
                  }])
 end
 
-@just_a_digit = 1
-
 60.times do
-  @just_a_digit = +1
-  @just_a_digit = 1 if @just_a_digit > 30
-  ProductCategory.create([{ category_id: rand(1..3), product_id: @just_a_digit }])
+  ProductCategory.create([{ category_id: rand(1..3), product_id: rand(1..30) }])
 end
 
 30.times do
-  @just_a_digit = +1
-  User.create([{ email: 'user' + @just_a_digit.to_s + '@example.com', password: 'AdminPassword' }])
+  User.create([{ email: 'user' + rand(100..400).to_s + '@example.com', password: 'AdminPassword' }])
 end
 
 60.times do
   Comment.create([{ product_id: rand(1..30), user_id: rand(1..30), rating: rand(1..5) }])
 end
 
-puts 'Successful'
+puts 'Seeded'
