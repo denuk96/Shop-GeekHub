@@ -24,7 +24,6 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
       @category = Category.find_by(id: params[:category])
       @products = @category.products.paginate(page: params[:page], per_page: 20)
     end
-    # @products = Product.includes(:categories).where(id: params[:category]).paginate(page: params[:page], per_page: 20)
   end
 
   def show; end

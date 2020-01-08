@@ -13,6 +13,10 @@
       <strong><%= t('description') %>: </strong><%= @product.description.capitalize %>
     </p>
     <p>
+      <strong><%= t('comments.show.rating') %> </strong><%= count_average_rating.round(2) %>
+
+    </p>
+    <p>
       <strong><%= t('price') %>: </strong> <%= @product.price %>
     </p>
      <div>
