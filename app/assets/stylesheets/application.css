@@ -60,3 +60,9 @@ em {
 .alert {
     margin: 5px 0 5px 0 ;
 }
+
+/*hide useless button*/
+.trix-button--icon-attach, .trix-button-group--file-tools {
+    display: none;
+    opacity: 0;
+}

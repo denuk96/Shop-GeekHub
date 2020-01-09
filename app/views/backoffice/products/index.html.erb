@@ -5,9 +5,10 @@
       <button type="submit" class="btn btn-outline-light"><i class="fa fa-search"></i></button>
     <% end %>
   </div>
-  <%= link_to t('products.new.title'), new_admin_product_path, class: 'btn btn-primary' %>
   <h1><%= t('all_products') %></h1>
-
+  <%= link_to t('products.new.title'), new_admin_product_path, class: 'btn btn-primary' %>
+  <br>
+  <br>
   <div class="d-flex">
     <div class="dropdown">
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,7 +58,7 @@
                 <%= link_to category.title, admin_category_path(category.id), class: 'link' %>
               <% end %>
             </td>
-            <td><%=h truncate(products.description, length: 100) %></td>
+            <td><%= sanitize(products.description.to_s[0..100]) %></td>
             <td><%= products.price %></td>
             <th>
               <% total = products.comments.sum(:rating) %>
