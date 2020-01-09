@@ -40,11 +40,11 @@ end
 
 60.times do
   Comment.create([{
-                      product_id: rand(1..30),
-                      user_id: rand(1..30),
-                      rating: rand(1..5),
-                      body: Faker::Quotes::Shakespeare.romeo_and_juliet_quote
-                  }])
+                   product_id: rand(1..30),
+                   user_id: rand(1..30),
+                   rating: rand(1..5),
+                   body: Faker::Quotes::Shakespeare.romeo_and_juliet_quote
+                 }])
 end
 
 puts 'Seeded'
