@@ -27,4 +27,8 @@ class Product < ApplicationRecord
   scope :oldest, -> { order(created_at: :asc) }
   scope :cheapest, -> { order(price: :asc) }
   scope :expensive, -> { order('price DESC') }
+
+  def to_param
+    "#{id} - #{title}".parameterize
+  end
 end
