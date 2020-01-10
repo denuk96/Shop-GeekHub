@@ -2,7 +2,10 @@
   <%= form_with(model: [ :admin, @product ],local: true) do |form| %>
     <% if @product.errors.any? %>
       <div class="alert alert-danger">
-        <h2><%= pluralize(@product.errors.count, "") %><%= t('common.errors') %></h2>
+        <h2>
+          <%= pluralize(@product.errors.count, "") %>
+          <%= @product.errors.count > 1 ? t('errors') : t('error')  %>
+        </h2>
         <ul>
           <% @product.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -21,7 +24,7 @@
     </div>
     <div class="field">
       <%= form.label :description %>
-      <%= form.rich_text_area :description, class: "form-control" %>
+      <%= form.rich_text_area :description %>
     </div>
 
     <div class="field">

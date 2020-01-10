@@ -14,6 +14,15 @@ en:
     show:
       thanks_feedback: 'Thank you for your feedback!'
       offer_login: 'Log in to leave feedback!'
+    index:
+      sort:
+        sort_by: 'Sort by'
+        expensive: 'Expensive'
+        cheapest: 'Cheapest'
+        oldest: 'Oldest'
+        recent: 'Recent'
+        popular: 'Popular'
+        best: 'Best'
   comments:
     form:
       addcomment: 'Add a comment (optional) '
@@ -96,16 +105,8 @@ en:
   all_products: 'Products'
   found_nothing: 'We have not found anything like a '
   confirmation: 'Are you sure?'
-
-  expensive: 'expensive'
-  cheapest: 'cheapest'
-  oldest: 'oldest'
-  recent: 'recent'
-  popular: 'popular'
-  best: 'best'
+  error: 'error'
+  errors: 'errors'
   avg_rating: 'Rating average'
   times_rated: 'Times rated'
-  sort_by: 'Sort by'
-
-
 
