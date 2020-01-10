@@ -7,11 +7,11 @@
       <li>
         <% if I18n.locale == :ru  %>
           <%= link_to url_for(locale: :en),class: 'nav-link' do %>
-            <i class="fa fa-globe"><b>RU</b></i>
+            <i class="fas fa-globe"></i><b>RU</b>
           <% end %>
         <% else %>
           <%= link_to url_for(locale: :ru),class: 'nav-link' do %>
-            <i class="fa fa-globe"><b>EN</b></i>
+            <i class="fas fa-globe"></i><b>EN</b>
           <% end %>
         <% end %>
       </li>

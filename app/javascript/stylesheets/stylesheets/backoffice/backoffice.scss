@@ -1,0 +1,85 @@
+body {
+  color: #DADADA;
+}
+
+.link {
+  text-decoration: none;
+  color: #CCCCCC;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+table {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+th {
+
+  text-align: center;
+  border: 1px solid #555555;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #555555;
+}
+
+.container .image_in_modal img {
+  padding-left: 0em;
+  width: 800px;
+}
+
+.d-flex .dropdown {
+  margin: 5px 5px 5px 5px;
+}
+///////////////////////////////////////////////////////////////////////
+/* image zoom */
+body {
+  margin:0;
+}
+
+.image {
+  margin:30px;
+  cursor:zoom-in;
+}
+
+.popup {
+  position: absolute;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  display:none;
+  text-align:center;
+}
+
+.popup_bg {
+  background:rgba(0,0,0,0.3);
+  position:fixed;
+  z-index:1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+}
+
+.popup_img {
+  position: fixed;
+  z-index:2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  max-height: 90%;
+}
+
+.popup_img {
+  pointer-events: none;
+}
+///////////////////////////////////////////////////////////////////////////////
+

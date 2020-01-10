@@ -48,10 +48,10 @@
                       <span>
                         <% total = product.comments.sum(:rating) %>
                         <% average = total.to_f / product.comments.count %>
-                        <i class="fa fa-star"><%= average.round(1) %></i>
+                        <%= average.round(1) %><i class="fas fa-star"></i>
                       </span>
                       |
-                      <i class="fa fa-cart-arrow-down"></i>
+                      <i class="fas fa-cart-arrow-down"></i>
                     </span>
                 </h5>
               </div>
