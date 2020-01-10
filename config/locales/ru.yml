@@ -14,6 +14,15 @@ ru:
     show:
       thanks_feedback: 'Спасибо за ваш отзыв!'
       offer_login: 'Войдите что бы оставлять отзывы!'
+    index:
+      sort:
+        sort_by: 'Сортировать'
+        expensive: 'Дорогие'
+        cheapest: 'Дешевые'
+        oldest: 'Старые'
+        recent: 'Новые'
+        popular: 'Популярные'
+        best: 'Лучшие'
   comments:
     form:
       addcomment: 'Добавить комментарий (опционально) '
@@ -96,13 +105,8 @@ ru:
   all_products: 'Продукты'
   found_nothing: 'Мы ничего не нашли похожее на '
   confirmation: 'Вы уверенны?'
-
-  expensive: 'Дорогие'
-  cheapest: 'Дешевые'
-  oldest: 'Старые'
-  recent: 'Новые'
-  popular: 'Популярные'
-  best: 'Лучшие'
+  error: 'ошибка'
+  errors: 'ошибки'
   avg_rating: 'Средний рейтинг'
   times_rated: 'Количество отзывов'
-  sort_by: 'Сортировать'
+
