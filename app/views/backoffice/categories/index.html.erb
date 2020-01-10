@@ -22,7 +22,7 @@
                 <%= category.title %>
               <% end %>
             </td>
-            <td><%=h truncate(category.description, length: 100) %></td>
+            <td><%= h truncate(category.description, length: 100) %></td>
             <td>
               <%= link_to t('show'), admin_category_path(category) %>
               <%= link_to t('edit'), edit_admin_category_path(category) %>

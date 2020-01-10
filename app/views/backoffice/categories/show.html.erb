@@ -43,7 +43,7 @@
                 <%= link_to category.title, admin_category_path(category.id), class: 'link' %>
               <% end %>
             </td>
-            <td><%=h truncate(products.description, length: 100) %></td>
+            <td><%= sanitize(products.description.to_s[0..100]) %></td>
             <td><%= products.price %></td>
             <th>
               <% total = products.comments.sum(:rating) %>
