@@ -15,12 +15,12 @@
         <%= t('products.index.sort.sort_by') %>
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <%= link_to t('expensive'), admin_products_path(sort: 'expensive'), class:'dropdown-item' %>
-        <%= link_to t('cheapest'), admin_products_path(sort: 'cheapest'), class:'dropdown-item' %>
-        <%= link_to t('oldest'), admin_products_path(sort: 'oldest'), class:'dropdown-item' %>
-        <%= link_to t('recent'), admin_products_path(sort: 'recent'), class:'dropdown-item' %>
-        <%= link_to t('popular'), admin_products_path(sort: 'popular'), class:'dropdown-item' %>
-        <%= link_to t('best'), admin_products_path(sort: 'best'), class:'dropdown-item' %>
+        <%= link_to t('products.index.sort.expensive'), admin_products_path(sort: 'expensive'), class:'dropdown-item' %>
+        <%= link_to t('products.index.sort.cheapest'), admin_products_path(sort: 'cheapest'), class:'dropdown-item' %>
+        <%= link_to t('products.index.sort.oldest'), admin_products_path(sort: 'oldest'), class:'dropdown-item' %>
+        <%= link_to t('products.index.sort.recent'), admin_products_path(sort: 'recent'), class:'dropdown-item' %>
+        <%= link_to t('products.index.sort.popular'), admin_products_path(sort: 'popular'), class:'dropdown-item' %>
+        <%= link_to t('products.index.sort.best'), admin_products_path(sort: 'best'), class:'dropdown-item' %>
       </div>
     </div>
     <div class="dropdown">
@@ -61,9 +61,7 @@
             <td><%= sanitize(products.description.to_s[0..100]) %></td>
             <td><%= products.price %></td>
             <th>
-              <% total = products.comments.sum(:rating) %>
-              <% average = total.to_f / products.comments.count %>
-              <%= average.round(1) %> <i class="fas fa-star"></i>
+              <%= count_average_rating(products).round(1) %> <i class="fas fa-star"></i>
             </th>
             <td><%= products.cached_comments_total %></td>
             <td>
