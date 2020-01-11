@@ -14,7 +14,7 @@
       <strong><%= t('description') %>: </strong><%= @product.description %>
     </p>
     <p>
-      <strong><%= t('comments.show.rating') %> </strong><%= count_average_rating.round(2) %>
+      <strong><%= t('comments.show.rating') %> </strong><%= count_average_rating(@product).round(2) %>
 
     </p>
     <p>

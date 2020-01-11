@@ -61,9 +61,7 @@
             <td><%= sanitize(products.description.to_s[0..100]) %></td>
             <td><%= products.price %></td>
             <th>
-              <% total = products.comments.sum(:rating) %>
-              <% average = total.to_f / products.comments.count %>
-              <%= average.round(1) %> <i class="fas fa-star"></i>
+              <%= count_average_rating(products).round(1) %> <i class="fas fa-star"></i>
             </th>
             <td><%= products.cached_comments_total %></td>
             <td>
