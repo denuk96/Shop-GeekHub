@@ -17,4 +17,8 @@ class Category < ApplicationRecord
   validates :title, :description, presence: true
   validates :title, uniqueness: true
   mount_uploader :image, ImageUploader
+
+  def to_param
+    "#{id} - #{title}".parameterize
+  end
 end
