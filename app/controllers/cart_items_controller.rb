@@ -8,7 +8,7 @@ class CartItemsController < ApplicationController
       @cart_item = CartItem.find_by(product_id: params[:product_id])
       @cart_item.quantity += 1
     else
-      @cart_item = CartItem.new(cart_item_params)
+      @cart_item = CartItem.new
     end
     @cart_item.cart_id = @cart.id
     @cart_item.product_id = params[:product_id]
@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_item.destroy
-    redirect_to request.referrer, notice: 'destroyed'
+    redirect_to request.referrer, notice: 'removed'
   end
 
   private
@@ -34,9 +34,5 @@ class CartItemsController < ApplicationController
 
   def set_cart
     @cart = Cart.find_by_user_id(current_user.id)
-  end
-
-  def cart_item_params
-    params.require(:cart_item).permit(:product_id)
   end
 end
