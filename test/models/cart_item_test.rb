@@ -6,6 +6,8 @@
 #  cart_id    :bigint           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  product_id :bigint           not null
+#  quantity   :integer          default(1)
 #
 
 require 'test_helper'
