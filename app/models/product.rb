@@ -19,7 +19,7 @@ class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories
   has_many :comments, dependent: :destroy
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
 
   validates_presence_of :product_categories, message: I18n.t('models.product_category.category_blank')
   validates :title, :description, presence: true, uniqueness: true
