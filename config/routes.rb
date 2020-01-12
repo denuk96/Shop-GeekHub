@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users, :sessions
+  resources :users, :sessions, :cart_items, :carts
+  get 'buy', to: 'cart_items#create', as: 'buy'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
