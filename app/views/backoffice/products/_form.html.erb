@@ -3,8 +3,8 @@
     <% if @product.errors.any? %>
       <div class="alert alert-danger">
         <h2>
-          <%= pluralize(@product.errors.count, "") %>
-          <%= @product.errors.count > 1 ? t('errors') : t('error')  %>
+          <%= @product.errors.count %>
+          <%= @product.errors.count > 1 ? t('errorrs') : t('error')  %>
         </h2>
         <ul>
           <% @product.errors.full_messages.each do |message| %>
@@ -15,7 +15,9 @@
     <% end %>
 
     <div class="field">
-      <%= form.collection_check_boxes :category_ids, Category.all, :id, :title, class:'form-control' %>
+      <%= form.label :categories %>
+      <br>
+      <%= form.collection_check_boxes :category_ids, Category.all, :id, :title %>
     </div>
 
     <div class="field">

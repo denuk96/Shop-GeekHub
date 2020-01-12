@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   resources :products do
     resources :images, controller: 'backoffice/images'
     resources :comments
+    get 'buy', to: 'cart_items#create', as: 'buy'
   end
 
-  resources :users, :sessions
+  resources :users, :sessions, :cart_items, :carts
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

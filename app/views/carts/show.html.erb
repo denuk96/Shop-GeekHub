@@ -1,0 +1,22 @@
+<div class="container">
+  <%= link_to t('destroy'), cart_path(@cart), method: :delete,
+              data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
+  <div class="justify-content-center " >
+    <% @cart_items.each do |cart_item| %>
+      <br>
+      <%= cart_item.product.title %>
+      <div style="max-height: 200px; max-width: 200px">
+        <% if cart_item.product.images? %>
+          <%= image_tag cart_item.product.images.first.url(:small), class:'index_image' %>
+        <% else %>
+          <%= image_tag("https://picua.org/images/2019/12/27/31783d15d36cb0de20e5556443e01916.jpg",
+                        class:'alt_image index_image') %>
+        <% end %>
+      </div>
+      <%= cart_item.quantity %>
+      <%= link_to t('destroy'), cart_item_path(cart_item), method: :delete,
+                  data: { confirm: t('confirmation') } %>
+      <br>
+    <% end %>
+  </div>
+</div>

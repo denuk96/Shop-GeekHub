@@ -16,6 +16,7 @@ class User < ApplicationRecord
   attr_accessor :password, :password_confirmation
 
   has_many :comments, dependent: :destroy
+  has_one :cart, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, presence: true, allow_nil: true

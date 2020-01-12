@@ -85,7 +85,9 @@ ru:
     email: 'Почта'
     password: 'Пароль'
     login: 'Войти'
-
+  models:
+    product_category:
+      category_blank: "^Категории пустые"
 
   send: 'Отправить'
   create: 'Создать'
@@ -106,7 +108,7 @@ ru:
   found_nothing: 'Мы ничего не нашли похожее на '
   confirmation: 'Вы уверенны?'
   error: 'ошибка'
-  errors: 'ошибки'
+  errorrs: 'ошибки'
   avg_rating: 'Средний рейтинг'
   times_rated: 'Количество отзывов'
 

@@ -3,12 +3,14 @@ ru:
     models:
       category: 'Категория'
       product: 'Продукт'
+      product_category: 'Категории'
     attributes:
       category:
         title: 'Заголовок'
         description: 'Описание'
         image: 'Изображение'
       product:
+        categories: 'Категории'
         title: 'Заголовок'
         description: 'Описание'
         image: 'Изображение'
@@ -17,3 +19,9 @@ ru:
         email: 'Почта'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+    errors:
+      models:
+        product:
+          attributes:
+            price:
+              too_long: ' слишком длинная (до 8 цифр, включая после запятой)'

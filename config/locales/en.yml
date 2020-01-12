@@ -85,7 +85,9 @@ en:
     email: 'Email'
     password: 'Password'
     login: 'Login'
-
+  models:
+    product_category:
+      category_blank: "^Categories can't be blank"
 
   send: 'Send'
   create: 'Create'
@@ -106,7 +108,8 @@ en:
   found_nothing: 'We have not found anything like a '
   confirmation: 'Are you sure?'
   error: 'error'
-  errors: 'errors'
+  errorrs: 'errors'
   avg_rating: 'Rating average'
   times_rated: 'Times rated'
+
 

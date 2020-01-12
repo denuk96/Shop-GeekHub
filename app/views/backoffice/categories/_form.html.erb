@@ -2,8 +2,8 @@
   <% if @category.errors.any? %>
     <div class="alert alert-danger">
       <h2>
-        <%= pluralize(@category.errors.count, '' ) %>
-        <%= @category.errors.count > 1 ? t('errors') : t('error')  %>
+        <%= pluralize(@category.errors.count, "" ) %>
+        <%= @category.errors.count > 1 ? t('errorrs') : t('error')  %>
       </h2>
       <ul>
         <% @category.errors.full_messages.each do |message| %>

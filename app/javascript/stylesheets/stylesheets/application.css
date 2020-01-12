@@ -1,11 +1,3 @@
-/*
- *= require_tree .
- *= require_self
- */
-/*
- *= require font-awesome
- */
-
 body {
     background-image: url(https://picua.org/images/2019/12/17/022cb3b921994985449245a411166609.jpg);
     background-size: cover;
@@ -59,10 +51,4 @@ em {
 
 .alert {
     margin: 5px 0 5px 0 ;
-}
-
-/*hide useless button*/
-.trix-button--icon-attach, .trix-button-group--file-tools {
-    display: none;
-    opacity: 0;
 }

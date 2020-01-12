@@ -3,12 +3,14 @@ en:
     models:
       category: 'Category'
       product: 'Product'
+      product_categories: 'Categories'
     attributes:
       category:
         title: 'Title'
         description: 'Description'
         image: 'Image'
       product:
+        categories: 'Categories'
         title: 'Title'
         description: 'Description'
         image: 'Image'
@@ -17,3 +19,9 @@ en:
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Password confirmation'
+    errors:
+      models:
+        product:
+          attributes:
+            price:
+              too_long: ' is to long (8 digits max)'

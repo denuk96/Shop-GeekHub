@@ -6,6 +6,15 @@ class ApplicationController < ActionController::Base
     redirect_to home_path if current_user.present?
   end
 
+  # uses in sessions/create; carts/destroy
+  def create_or_set_cart
+    if current_user && Cart.find_by_user_id(current_user&.id).nil?
+      @cart = Cart.new
+      @cart.user_id = current_user.id
+      @cart.save
+    end
+  end
+
   private
 
   def set_locale
