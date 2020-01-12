@@ -23,7 +23,7 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_item.destroy
-    redirect_to request.referrer, notice: 'destroyed'
+    redirect_to request.referrer, notice: 'removed'
   end
 
   private
