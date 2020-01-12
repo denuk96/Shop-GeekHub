@@ -1,9 +1,15 @@
 class CartItemsController < ApplicationController
+  before_action :set_cart
   before_action :set_cart_item, only: %i[destroy]
 
+
   def create
-    @cart_item = CartItem.new
-    @cart = Cart.find_by_user_id(current_user.id)
+    if CartItem.find_by(product_id: params[:product_id]).present?
+      @cart_item = CartItem.find_by(product_id: params[:product_id])
+      @cart_item.quantity += 1
+    else
+      @cart_item = CartItem.new(cart_item_params)
+    end
     @cart_item.cart_id = @cart.id
     @cart_item.product_id = params[:product_id]
     if @cart_item.save
@@ -24,5 +30,13 @@ class CartItemsController < ApplicationController
 
   def set_cart_item
     @cart_item = CartItem.find(params[:id])
+  end
+
+  def set_cart
+    @cart = Cart.find_by_user_id(current_user.id)
+  end
+
+  def cart_item_params
+    params.require(:cart_item).permit(:product_id)
   end
 end

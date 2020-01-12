@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   #  end
   #end
 
-  # uses in sessions/create
+  # uses in sessions/create; carts/destroy
   def set_cart
     if current_user && Cart.find_by_user_id(current_user&.id).nil?
       @cart = Cart.new
