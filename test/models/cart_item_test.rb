@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #  product_id :bigint           not null
 #  quantity   :integer          default(1)
+#  price      :decimal(, )
 #
 
 require 'test_helper'
