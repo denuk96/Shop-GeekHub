@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :cart_empty?, only: :new
+  before_action :user_logged_in?
+  before_action :cart_empty?, only: %i[new create]
   before_action :set_cart, only: :create
 
   def index
-    @orders = Order.where(user_id: current_user.id)
+    @orders = Order.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def show
-    @order = Order.find_by(id: params[:id])
+    @order = Order.find_by(id: params[:id], user_id: current_user.id)
   end
 
   def new
@@ -19,10 +20,8 @@ class OrdersController < ApplicationController
     @order.add_cart_items_from_cart(@cart)
     @order.user_id = current_user.id
     @order.total_price = @cart.total_price
-    #byebug
     if @order.save
-      redirect_to purchase_order_path(@order)
-      flash[:notice] = 'saved'
+      redirect_to purchase_order_path(@order), flash[:notice] = 'saved'
     else
       render :new
     end

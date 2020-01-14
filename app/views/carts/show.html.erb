@@ -3,6 +3,7 @@
               data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
   <%= link_to 'CheckOut', new_purchase_order_path(cart: @cart),
               data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
+  <%= link_to 'orders', purchase_orders_path, class: 'btn btn-outline-light' %>
   <p>
     <b>Total: <%= @cart.total_price %></b>
   </p>

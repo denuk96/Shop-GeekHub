@@ -1,4 +1,5 @@
 class CartItemsController < ApplicationController
+  before_action :user_logged_in?
   before_action :set_cart
   before_action :set_cart_item, only: %i[destroy]
 
