@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   scope :purchase do
     resources :carts, controller: 'carts', as: 'purchase_cart'
     resources :cart_items, controller: 'cart_items', as: 'purchase_cart_items'
+    resources :orders, controller: 'orders', as: 'purchase_orders'
     get 'buy', to: 'cart_items#create', as: 'purchase_buy'
     get 'increase_cart_item', to: 'cart_items#increase_cart_item', as: 'purchase_increase_cart_item'
     get 'decrease_cart_item', to: 'cart_items#decrease_cart_item', as: 'purchase_decrease_cart_item'

@@ -1,0 +1,39 @@
+<div class="container">
+  <%= form_with(model: [:purchase, @order ],local: true) do |form| %>
+    <% if @order.errors.any? %>
+      <div class="alert alert-danger">
+        <h2>
+          <%= @order.errors.count %>
+          <%= @order.errors.count > 1 ? t('errorrs') : t('error')  %>
+        </h2>
+        <ul>
+          <% @order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= current_user.email %>
+
+    <div class="field">
+      <%= form.label :full_name %>
+      <%= form.text_field :full_name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_area :address, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone %>
+      <%= form.text_area :phone, class: "form-control", type: "number" %>
+    </div>
+
+    <br>
+    <div class="text-center actions">
+      <%= form.submit t('.submit'), class: "btn btn-light" %>
+    </div>
+  <% end %>
+</div>
