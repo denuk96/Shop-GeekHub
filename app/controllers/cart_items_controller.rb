@@ -4,9 +4,9 @@ class CartItemsController < ApplicationController
 
   def create
     @product = Product.find_by(id: params[:product_id])
-    if CartItem.find_by(product_id: params[:product_id], price: @product.price).present?
+    if @cart.cart_items.find_by(product_id: params[:product_id], price: @product.price).present?
       if check_price
-        @cart_item = CartItem.find_by(product_id: params[:product_id], price: @product.price)
+        @cart_item = @cart.cart_items.find_by(product_id: params[:product_id], price: @product.price)
         @cart_item.quantity += 1
       else
         @cart_item = CartItem.new
