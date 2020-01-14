@@ -103,4 +103,4 @@
   </nav>
 </div>
 
-<%= link_to 'cart', cart_path(id: current_user.id) if current_user%>
+<%= link_to 'cart', purchase_cart_path(id: current_user.id) if current_user%>

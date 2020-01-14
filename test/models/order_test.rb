@@ -1,19 +1,20 @@
 # == Schema Information
 #
-# Table name: cart_items
+# Table name: orders
 #
 #  id         :bigint           not null, primary key
-#  cart_id    :bigint           not null
+#  full_name  :string
+#  address    :text
+#  user_id    :bigint           not null
+#  status     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  product_id :bigint           not null
-#  quantity   :integer          default(1)
-#  price      :decimal(, )
+#  phone      :integer
 #
 
 require 'test_helper'
 
-class CartItemTest < ActiveSupport::TestCase
+class OrderTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
