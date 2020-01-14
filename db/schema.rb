@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_101029) do
+ActiveRecord::Schema.define(version: 2020_01_14_135848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 2020_01_14_101029) do
     t.bigint "product_id", null: false
     t.integer "quantity", default: 1
     t.decimal "price"
+    t.bigint "order_id"
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
+    t.index ["order_id"], name: "index_cart_items_on_order_id"
     t.index ["product_id"], name: "index_cart_items_on_product_id"
   end
 
@@ -125,6 +127,7 @@ ActiveRecord::Schema.define(version: 2020_01_14_101029) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_items", "carts"
+  add_foreign_key "cart_items", "orders"
   add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"
   add_foreign_key "comments", "products"

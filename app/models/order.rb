@@ -14,6 +14,7 @@
 
 class Order < ApplicationRecord
   belongs_to :user
+  has_many :cart_items
 
   validates :full_name, :address, :phone, presence: true
 end
