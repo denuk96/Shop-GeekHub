@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :current_user_exist?, except: :destroy
+  before_action :current_user_already_exist?, except: :destroy
 
   def new; end
 

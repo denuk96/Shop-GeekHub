@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :current_user_exist?
+  before_action :current_user_already_exist?
 
   def new
     @user = User.new

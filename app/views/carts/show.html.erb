@@ -1,6 +1,12 @@
 <div class="container">
-  <%= link_to t('destroy'), cart_path(@cart), method: :delete,
+  <%= link_to t('destroy'), purchase_cart_path(@cart), method: :delete,
               data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
+  <%= link_to 'CheckOut', new_purchase_order_path(cart: @cart),
+              data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
+  <%= link_to 'orders', purchase_orders_path, class: 'btn btn-outline-light' %>
+  <p>
+    <b>Total: <%= @cart.total_price %></b>
+  </p>
   <div class="justify-content-center " >
     <% @cart_items.each do |cart_item| %>
       <br>
@@ -14,7 +20,11 @@
         <% end %>
       </div>
       <%= cart_item.quantity %>
-      <%= link_to t('destroy'), cart_item_path(cart_item), method: :delete,
+      <br>
+      <%= cart_item.price %>
+      <%= link_to 'add one', purchase_increase_cart_item_path(cart_item: cart_item.id), style: 'color: red;' %>
+      <%= link_to 'remove one', purchase_decrease_cart_item_path(cart_item: cart_item.id), style: 'color: red;' %>
+      <%= link_to t('destroy'), purchase_cart_item_path(cart_item), method: :delete,
                   data: { confirm: t('confirmation') } %>
       <br>
     <% end %>

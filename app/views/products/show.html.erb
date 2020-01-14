@@ -46,7 +46,7 @@
                 <i class="fas fa-star"></i><%= count_average_rating(@product).round(1) %>
               </span>
             </h5>
-            <%= link_to 'add to cart', product_buy_path(product_id: @product.id), style: 'color: red;' %>
+            <%= link_to 'add to cart', purchase_buy_path(product_id: @product.id), style: 'color: red;' %>
           </div>
           <%=@product.description %>
         </p>

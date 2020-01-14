@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :user_logged_in?
   before_action :set_cart
 
   def show
