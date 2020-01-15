@@ -30,16 +30,7 @@ class Product < ApplicationRecord
   scope :cheapest, -> { order(price: :asc) }
   scope :expensive, -> { order('price DESC') }
 
-  before_destroy :ensure_not_referenced_by_any_cart_item
-
   def to_param
     "#{id} - #{title}".parameterize
-  end
-
-  def ensure_not_referenced_by_any_cart_item
-    if cart_items.present?
-      errors.add(:base, 'exist cart_item')
-      false
-    end
   end
 end

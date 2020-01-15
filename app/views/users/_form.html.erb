@@ -1,7 +1,10 @@
 <%= form_for @user do |form| %>
   <% if user.errors.any? %>
     <div class="alert alert-danger">
-      <h2><%= pluralize(user.errors.count, "") %> <%= t('common.errors') %> </h2>
+      <h2>
+        <%= user.errors.count %>
+        <%= user.errors.count > 1 ? t('errorrs') : t('error')  %>
+      </h2>
       <ul>
         <% user.errors.full_messages.each do |message| %>
           <li><%= message %></li>

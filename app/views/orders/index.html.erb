@@ -1,0 +1,24 @@
+<div class="container">
+  <% @orders.each do |order| %>
+    <% order.cart_items.each do |item| %>
+      <h1>ORDER</h1>
+      <p>Title:
+        <%= item.product.title %>
+      </p>
+      <p>Count:
+        <%= item.quantity %>
+      </p>
+      <p>Price:
+        <%= item.product.price %>
+      </p>
+    <% end %>
+    <h3> Total Price:
+      <%= order.total_price %>
+    </h3>
+    <h2> Status:
+      <%= order.status %>
+    </h2>
+    <%= link_to 'show', purchase_order_path(id: order.id) %>
+  <% end %>
+  <br>
+</div>

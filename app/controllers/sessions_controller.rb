@@ -1,12 +1,11 @@
 class SessionsController < ApplicationController
-  before_action :current_user_exist?, except: :destroy
+  before_action :current_user_already_exist?, except: :destroy
 
   def new; end
 
   def create
     user = login(params[:email], params[:password])
     if user
-      create_or_set_cart
       redirect_back_or_to home_path, notice: t('controllers.sessions.logged_in')
     else
       redirect_to new_session_path, alert: t('controllers.sessions.failed')

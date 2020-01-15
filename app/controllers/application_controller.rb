@@ -2,15 +2,19 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_list_categories
 
-  def current_user_exist?
+  def current_user_already_exist?
     redirect_to home_path if current_user.present?
   end
 
-  # uses in sessions/create; carts/destroy
-  def create_or_set_cart
-    if current_user && Cart.find_by_user_id(current_user&.id).nil?
-      @cart = Cart.new
-      @cart.user_id = current_user.id
+  def user_logged_in?
+    redirect_to login_path, alert: 'Log in first' if current_user.nil?
+  end
+
+  def set_cart
+    if Cart.find_by_user_id(current_user&.id).present?
+      @cart = Cart.find_by_user_id(current_user.id)
+    else
+      @cart = Cart.new(user_id: current_user.id)
       @cart.save
     end
   end

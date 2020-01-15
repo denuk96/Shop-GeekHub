@@ -31,6 +31,11 @@
       <%= form.text_area :phone, class: "form-control", type: "number" %>
     </div>
 
+    <h3>
+      Total price:
+      <%= @cart.total_price %>
+    </h3>
+
     <br>
     <div class="text-center actions">
       <%= form.submit t('.submit'), class: "btn btn-light" %>
