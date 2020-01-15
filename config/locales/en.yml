@@ -53,6 +53,7 @@ en:
       created: 'Product has been created'
       edited: 'Product has been edited'
       destroyed: 'Product has been destroyed'
+      product_exist: 'Exist cart_item(somebody has added this product to its cart/order)'
     images:
       uploading_failed: 'Failed uploading images'
       deleting_failed: 'Failed deleting image'
@@ -69,6 +70,15 @@ en:
       logget_out: 'Logged out!'
     users:
       create: 'Welcome! Now you can log in!'
+    cart:
+      destroy: 'Cart is cleared'
+    cart_item:
+      created: 'Added to cart'
+      destroy: 'Removed'
+      time_is_out: 'Time is out'
+    order:
+      create: 'Your order has been received. Our manager will contact you soon. Also we sent a bill on your email. Thanks for your trust! '
+      empty: 'Cart is empty'
   navbar:
     contacts: 'Contacts'
     delivery: 'Delivery'
@@ -88,6 +98,9 @@ en:
   models:
     product_category:
       category_blank: "^Categories can't be blank"
+    user:
+      password_validation: 'must contain 1 small letter, 1 capital letter, 1 number and minimum 8 symbols'
+
 
   send: 'Send'
   create: 'Create'

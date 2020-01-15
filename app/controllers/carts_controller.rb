@@ -8,7 +8,7 @@ class CartsController < ApplicationController
 
   def destroy
     @cart.destroy
-    redirect_to request.referrer, notice: 'cleared'
+    redirect_to request.referrer, notice: t('controllers.cart.destroy')
     set_cart
   end
 end

@@ -15,7 +15,7 @@ class CartItemsController < ApplicationController
       @cart_item = CartItem.new(cart_id: @cart.id, product_id: params[:product_id], price: @product.price)
     end
     if @cart_item.save
-      redirect_to request.referrer, notice: 'added to cart'
+      redirect_to request.referrer, notice: t('controllers.cart_item.created')
     else
       redirect_to request.referrer, alert: @cart_item.errors.full_messages.first
     end
@@ -23,13 +23,17 @@ class CartItemsController < ApplicationController
 
   def destroy
     @cart_item.destroy
-    redirect_to request.referrer, notice: 'removed'
+    redirect_to request.referrer, notice: t('controllers.cart_item.destroy')
   end
 
   def increase_cart_item
-    @cart_item.quantity += 1
-    @cart_item.save
-    redirect_to request.referrer
+    if (Time.now - @cart_item.created_at) < 1.hour
+      @cart_item.quantity += 1
+      @cart_item.save
+      redirect_to request.referrer
+    else
+      redirect_to request.referrer, alert: t('controllers.cart_item.time_is_out')
+    end
   end
 
   def decrease_cart_item
@@ -56,5 +60,9 @@ class CartItemsController < ApplicationController
     cart_items.each do |cart_item|
       @cart_item = cart_item if @product.price == cart_item.price
     end
+  end
+
+  def time_is_out
+    true if (Time.now - @cart_item.created_at) < 1.minute
   end
 end

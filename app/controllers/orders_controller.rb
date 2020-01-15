@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.total_price = @cart.total_price
     if @order.save
-      redirect_to purchase_order_path(@order), notice: 'saved'
+      redirect_to purchase_order_path(@order), notice: t('controllers.order.create')
     else
       render :new
     end
@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
   def cart_empty?
     set_cart
-    redirect_to request.referrer, alert: 'Cart is empty' if @cart.cart_items.empty?
+    redirect_to request.referrer, alert: t('controllers.order.empty') if @cart.cart_items.empty?
   end
 
   def order_params
