@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_cart, only: :create
 
   def index
-    @orders = Order.where(user_id: current_user.id).order(created_at: :desc)
+    @orders = Order.where(user_id: current_user.id).order(updated_at: :desc)
   end
 
   def show
@@ -21,17 +21,13 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.total_price = @cart.total_price
     if @order.save
-      redirect_to purchase_order_path(@order), flash[:notice] = 'saved'
+      redirect_to purchase_order_path(@order), notice: 'saved'
     else
       render :new
     end
   end
 
   private
-
-  def set_cart
-    @cart = Cart.find_by_user_id(current_user.id)
-  end
 
   def cart_empty?
     set_cart

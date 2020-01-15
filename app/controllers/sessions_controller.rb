@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:email], params[:password])
     if user
-      create_or_set_cart
       redirect_back_or_to home_path, notice: t('controllers.sessions.logged_in')
     else
       redirect_to new_session_path, alert: t('controllers.sessions.failed')

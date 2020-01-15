@@ -15,7 +15,7 @@
 
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
 
   validates :full_name, :address, :phone, presence: true
 

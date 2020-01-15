@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
     redirect_to login_path, alert: 'Log in first' if current_user.nil?
   end
 
-  # uses in sessions/create; carts/destroy
-  def create_or_set_cart
-    if current_user && Cart.find_by_user_id(current_user&.id).nil?
-      @cart = Cart.new
-      @cart.user_id = current_user.id
+  def set_cart
+    if Cart.find_by_user_id(current_user&.id).present?
+      @cart = Cart.find_by_user_id(current_user.id)
+    else
+      @cart = Cart.new(user_id: current_user.id)
       @cart.save
     end
   end
