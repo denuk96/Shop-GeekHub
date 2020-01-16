@@ -4,13 +4,12 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Welcome to GeekHub Shop, <%= @user.email %></h1>
+<h1><%= t('mailer.user.h1_welcome') %> <%= @user.email %></h1>
 <p>
-  You have successfully signed up to GeekHub Shop!
+  <%= t('mailer.user.signed_up') %>
+  <br>
+  <%= t('mailer.user.thanks') %>
 </p>
-<p>
-  Thanks for joining and have a great day!
-</p>
-<p><i>created by Denys Taradada</i></p>
+<p><i><%= t('mailer.common.created_by') %></i></p>
 </body>
 </html>

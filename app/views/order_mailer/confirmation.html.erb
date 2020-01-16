@@ -4,15 +4,15 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Thank you for your order, dear <%= @order.full_name %></h1>
-<h2>We'll send it as soon as we can!</h2>
+<h1> <%= t('mailer.order.thanks') %> <%= @order.full_name %></h1>
+<h2> <%= t('mailer.order.sending') %></h2>
 <div>
-  <h3>Order id: <b><%= @order.id %></b></h3>
+  <h3><%= t('mailer.order.order_id') %><b><%= @order.id %></b></h3>
   <table>
     <tr>
-      <th>Product name </th>
-      <th>Quantity</th>
-      <th>Price</th>
+      <th><%= t('mailer.order.product') %></th>
+      <th><%= t('mailer.order.quantity') %></th>
+      <th><%= t('mailer.order.price') %></th>
     </tr>
     <ul>
       <% @order.cart_items.each do |item| %>
@@ -24,14 +24,13 @@
       <% end %>
     </ul>
   </table>
-  <h2>Total price: <b><%= @order.total_price %></b></h2>
+  <h2><%= t('mailer.order.total_price') %> <b><%= @order.total_price %></b></h2>
 </div>
 <div>
-  If you want to edit your order or discard - contact with as!
-  Thanks in advance!
+ <%= t('mailer.order.if_edit') %>
 </div>
-<footer>
-  <i>Created by Denys Taradada</i>
-</footer>
+<p>
+  <i><%= t('mailer.common.created_by') %></i>
+</p>
 </body>
 </html>

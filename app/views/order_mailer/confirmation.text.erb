@@ -1,10 +1,9 @@
-Thank you for your order, dear <%= @order.full_name %>
-We'll send it as soon as we can!
-Order id: <%= @order.id %>
+<%= t('mailer.order.thanks') %> <%= @order.full_name %>
+<%= t('mailer.order.we_will_send') %>
+<%= t('mailer.order.order_id') %> <%= @order.id %>
 <% @order.cart_items.each do |item| %>
-    Product:<%= item.product.title %>, x<%= item.quantity %>,<%= item.price %>
+  <%= t('mailer.order.product') %><%= item.product.title %>, x<%= item.quantity %>,<%= item.price %>
 <% end %>
-Total price: <%= @order.total_price %>
-If you want to edit your order or discard - contact with as!
-Thanks in advance!
-Created by Denys Taradada
+<%= t('mailer.order.total_price') %> <%= @order.total_price %>
+<%= t('mailer.order.if_edit') %>
+<%= t('mailer.common.created_by') %>
