@@ -1,0 +1,10 @@
+Thank you for your order, dear <%= @order.full_name %>
+We'll send it as soon as we can!
+Order id: <%= @order.id %>
+<% @order.cart_items.each do |item| %>
+    Product:<%= item.product.title %>, x<%= item.quantity %>,<%= item.price %>
+<% end %>
+Total price: <%= @order.total_price %>
+If you want to edit your order or discard - contact with as!
+Thanks in advance!
+Created by Denys Taradada
