@@ -100,7 +100,24 @@ en:
       category_blank: "^Categories can't be blank"
     user:
       password_validation: 'must contain 1 small letter, 1 capital letter, 1 number and minimum 8 symbols'
-
+  mailer:
+    common:
+      created_by: 'Created by Denys Taradada'
+    user:
+      subject: 'Welcome to My Awesome GeekHUB SHOP'
+      h1_welcome: 'Welcome to GeekHub Shop, '
+      signed_up: 'You have successfully signed up to GeekHub Shop!'
+      thanks: 'Thanks for joining and have a great day!'
+    order:
+      subject: 'You order created. GeekHub Shop'
+      thanks: 'Thank you for your order, dear '
+      sending: 'We send as soon as we can!'
+      order_id: 'Order id: '
+      product: 'Product'
+      quantity: 'Quantity'
+      price: 'Price'
+      total_price: 'Total price: '
+      if_edit: ' If you want to edit your order or discard - contact with as! Thanks in advance!'
 
   send: 'Send'
   create: 'Create'

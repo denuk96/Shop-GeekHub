@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1><%= t('mailer.user.h1_welcome') %> <%= @user.email %></h1>
+<p>
+  <%= t('mailer.user.signed_up') %>
+  <br>
+  <%= t('mailer.user.thanks') %>
+</p>
+<p><i><%= t('mailer.common.created_by') %></i></p>
+</body>
+</html>
