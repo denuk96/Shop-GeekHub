@@ -4,6 +4,7 @@
     <ul class="navbar-nav mr-auto">
       <li><%= link_to t('all_categories'), admin_categories_path, class: 'nav-link' %></li>
       <li><%= link_to t('all_products'), admin_products_path, class: 'nav-link' %></li>
+      <li><%= link_to t('all_orders'), admin_orders_path, class: 'nav-link' %></li>
       <li>
         <% if I18n.locale == :ru  %>
           <%= link_to url_for(locale: :en),class: 'nav-link' do %>

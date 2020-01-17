@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="form-inline">
+    <%= form_tag(admin_orders_path, method: "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: 'by_id', class:'form-control' %>
+      <button type="submit" class="btn btn-outline-light"><i class="fa fa-search"></i></button>
+    <% end %>
+  </div>
+  <h1>Orders</h1>
+  <div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= t('products.index.sort.sort_by') %> <%= params[:sort] %>
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <%= link_to 'All', admin_orders_path(sort: 'All'), class:'dropdown-item' %>
+      <%= link_to 'new', admin_orders_path(sort: 'new'), class:'dropdown-item' %>
+      <%= link_to 'in progress', admin_orders_path(sort: 'in progress'), class:'dropdown-item' %>
+      <%= link_to 'completed', admin_orders_path(sort: 'completed'), class:'dropdown-item' %>
+      <%= link_to 'cancelled', admin_orders_path(sort: 'cancelled'), class:'dropdown-item' %>
+    </div>
+  </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Created at</th>
+      <th>Status</th>
+      <th><%= t('actions') %></th>
+    </tr>
+    <ul>
+      <% if @orders.present? %>
+        <% @orders.each do |order| %>
+          <tr>
+            <td>
+              <%= link_to admin_order_path(order), class:'link' do %>
+                <%= order.id %>
+              <% end %>
+            </td>
+            <td>
+              <%= time_ago_in_words(order.created_at) %>
+            </td>
+            <td>
+              <%= order.status %>
+            </td>
+            <td>
+              <%= link_to t('show'), admin_order_path(order) %>
+              <%= link_to t('edit'), edit_admin_order_path(order) %>
+              <%= link_to t('destroy'), admin_order_path(id: order), method: :delete,
+                          data: { confirm: t('confirmation') } %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <td class="search alert alert-secondary" colspan="4">
+          <%= t('found_nothing') %> <%= params[:search] %> <%= params[:sort] %>.
+        </td>
+      <% end %>
+    </ul>
+  </table>
+  <div class="row justify-content-center">
+    <%= will_paginate(@things, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>
+  </div>
+</div>

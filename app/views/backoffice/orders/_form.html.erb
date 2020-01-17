@@ -1,0 +1,74 @@
+<div class="container">
+  <%= form_with(model: [:admin, @order ],local: true) do |form| %>
+    <% if @order.errors.any? %>
+      <div class="alert alert-danger">
+        <h2>
+          <%= @order.errors.count %>
+          <%= @order.errors.count > 1 ? t('errorrs') : t('error')  %>
+        </h2>
+        <ul>
+          <% @order.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <b><%= @order.user.email %></b>
+
+    <div class="field">
+      <%= form.label :full_name %>
+      <%= form.text_field :full_name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address %>
+      <%= form.text_area :address, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone %>
+      <%= form.text_area :phone, class: "form-control", type: "number" %>
+    </div>
+
+    <div class="row justify-content-center">
+      <table>
+        <tr>
+          <th><%= t('mailer.order.product') %></th>
+          <th><%= t('mailer.order.quantity') %></th>
+          <th><%= t('mailer.order.price') %></th>
+          <th><%= t('edit') %></th>
+        </tr>
+        <ul>
+          <% @order.cart_items.each do |item| %>
+            <tr>
+              <td><%= link_to item.product.title, admin_product_path(item.product), class: 'link' %></td>
+              <td><%= item.quantity %></td>
+              <td><%= item.price %></td>
+              <th>
+                <b>
+                  <%= link_to '+', admin_cart_item_increase_cart_item_path(order_id: @order.id, cart_item_id: item.id,
+                                                                           admin_cart_item_id: 'wat?'), class: 'link' %>
+                </b>
+                <b>
+                  <%= link_to '−', admin_cart_item_decrease_cart_item_path(order_id: @order.id, cart_item_id: item.id,
+                                                                           admin_cart_item_id: 'wat?'), class: 'link' %>
+                </b>
+              </th>
+            </tr>
+          <% end %>
+        </ul>
+      </table>
+    </div>
+
+    <h3>
+      Total price:
+      <%= @order.total_price %>
+    </h3>
+
+    <br>
+    <div class="text-center actions">
+      <%= form.submit t('.submit'), class: "btn btn-light" %>
+    </div>
+  <% end %>
+</div>

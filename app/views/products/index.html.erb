@@ -62,7 +62,7 @@
     <% else %>
       <div class="container">
         <p class="search alert alert-secondary">
-          <%= t('found_nothing') %> <%= params[:search] %>.
+          <%= t('found_nothing') %> <%= params[:search] %><%= params[:sort] %><%= params[:category] %>.
         </p>
       </div>
     <% end %>

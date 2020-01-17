@@ -74,12 +74,12 @@
         <% end %>
       <% else %>
         <td class="search alert alert-secondary" colspan="8">
-          <%= t('found_nothing') %> <%= params[:search] %>.
+          <%= t('found_nothing') %> <%= params[:search] %><%= params[:sort] %><%= params[:category] %>.
         </td>
       <% end %>
     </ul>
   </table>
   <div class="row justify-content-center">
-    <%= will_paginate(@things, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>
+    <%= will_paginate(@things, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>
   </div>
 </div>

@@ -24,5 +24,14 @@ Rails.application.routes.draw do
   scope :admin do
     resources :categories, controller: 'backoffice/categories', as: 'admin_categories'
     resources :products, controller: 'backoffice/products', as: 'admin_products'
+    resources :orders, controller: 'backoffice/orders', as: 'admin_orders' do
+      collection do
+        get 'change_status'
+      end
+    end
+    resources :cart_items, controller: 'backoffice/cart_items', as: 'admin_cart_items' do
+      get 'increase_cart_item'
+      get 'decrease_cart_item'
+    end
   end
 end

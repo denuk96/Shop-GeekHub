@@ -54,11 +54,11 @@ class Backoffice::ProductsController < Backoffice::BackofficeController
   end
 
   def destroy
-    if @product.cart_items.nil?
+    if @product.cart_items.present?
+      redirect_to request.referrer, alert: t('controllers.products.product_exist')
+    else
       @product.destroy
       redirect_to admin_products_path, notice: t('controllers.products.destroyed')
-    else
-      redirect_to request.referrer, alert: t('controllers.products.product_exist')
     end
   end
 

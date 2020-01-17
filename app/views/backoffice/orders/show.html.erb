@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="show">
+    <h2>
+      <%= t('mailer.order.order_id') %><b><%= @order.id %></b>
+    </h2>
+    <p>
+      <i>Full name: </i> <br>
+      <%= @order.full_name %>
+    </p>
+    <p>
+      <i>Address: </i><br>
+      <%= @order.address %>
+    </p>
+    <p>
+      <i>Phone: </i><br>
+      <%= @order.phone %>
+    </p>
+    <table>
+      <tr>
+        <th><%= t('mailer.order.product') %></th>
+        <th><%= t('mailer.order.quantity') %></th>
+        <th><%= t('mailer.order.price') %></th>
+      </tr>
+      <ul>
+        <% @order.cart_items.each do |item| %>
+          <tr>
+            <td><%= link_to item.product.title, admin_product_path(item.product), class: 'link' %></td>
+            <td><%= item.quantity %></td>
+            <td><%= item.price %></td>
+          </tr>
+        <% end %>
+      </ul>
+    </table>
+    <h2><i><%= t('mailer.order.total_price') %></i> <br>
+      <b><%= @order.total_price %></b>
+    </h2>
+    <br>
+    <h1><i>status:</i> <br>
+      <b><%= @order.status.capitalize %></b>
+    </h1>
+    <p>
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Change status
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <% Order::STATUS_TYPES.each do |types| %>
+            <%= link_to types, change_status_admin_orders_path(status: types, id: @order.id), class:'dropdown-item' %>
+          <% end %>
+        </div>
+      </div>
+    </p>
+    <br>
+    <div style="font-size: 30px">
+      <%= link_to t('edit'), edit_admin_order_path(@order), class: 'btn btn-outline-light' %>
+      <%= link_to t('destroy'), admin_order_path(@order), method: :delete,
+                  data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
+      <%= link_to t('back'), :back, class: 'btn btn-outline-light' %>
+    </div>
+  </div>
+</div>
