@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :orders, controller: 'backoffice/orders', as: 'admin_orders' do
       collection do
         get 'change_status'
+        get 'send_order_confirmation'
       end
     end
     resources :cart_items, controller: 'backoffice/cart_items', as: 'admin_cart_items' do

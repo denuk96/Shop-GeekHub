@@ -1,5 +1,5 @@
 class Backoffice::OrdersController < Backoffice::BackofficeController
-  before_action :find_order, only: %i[show destroy edit update change_status]
+  before_action :find_order, only: %i[show destroy edit update change_status send_order_confirmation]
 
   def index
     @orders = if params[:search]
@@ -22,6 +22,7 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
   def edit; end
 
   def update
+    verify_price(@order)
     if @order.update_attributes(order_params)
       OrderMailer.order_updated(@order).deliver!
       redirect_to admin: @order
@@ -43,13 +44,23 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
     render :show
   end
 
+  def send_order_confirmation
+    OrderMailer.confirmation(@order).deliver!
+    flash[:notice] = 'Email sent'
+    render :'backoffice/orders/show'
+  end
+
   private
+
+  def verify_price(order)
+    @order.total_price = order.cart_items.to_a.sum(&:total_price)
+  end
 
   def find_order
     @order = Order.find(params[:id])
   end
 
   def order_params
-    params.require(:order).permit(:full_name, :address, :phone)
+    params.require(:order).permit(:full_name, :address, :phone, :status)
   end
 end

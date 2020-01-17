@@ -31,6 +31,11 @@
       <%= form.text_area :phone, class: "form-control", type: "number" %>
     </div>
 
+    <div class="field">
+      <%= form.label :status %><br>
+      <%= form.select :status, Order::STATUS_TYPES, prompt: 'Status', class: 'form-control' %>
+    </div>
+
     <div class="row justify-content-center">
       <table>
         <tr>

@@ -40,7 +40,8 @@
     </h1>
     <p>
       <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Change status
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -48,6 +49,11 @@
             <%= link_to types, change_status_admin_orders_path(status: types, id: @order.id), class:'dropdown-item' %>
           <% end %>
         </div>
+        <br>
+        <p>
+          <%= link_to 'send email again', send_order_confirmation_admin_orders_path(id: @order),
+                      class: 'btn btn-outline-primary' %>
+        </p>
       </div>
     </p>
     <br>
