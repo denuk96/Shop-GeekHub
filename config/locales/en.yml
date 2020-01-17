@@ -43,6 +43,25 @@ en:
         add_more: 'Add more images'
         submit:
           '%{action} product'
+    orders:
+      updated: 'Order has been edited'
+      destroyed: 'Order has been destroyed'
+      email_sent: 'Email sent'
+      form:
+        total_price: 'Full price: '
+        submit: 'Submit'
+      edit:
+        title: 'Edit order'
+      index:
+        search: 'ID'
+        created_at: 'Created at'
+        status: 'Status'
+      show:
+        fullname: 'Full name: '
+        address: 'Address: '
+        phone: 'Phone: '
+        change_status: 'Change status'
+        send_mail: 'Send email again'
   controllers:
     admin_verify: 'You have no right'
     categories:
@@ -110,6 +129,8 @@ en:
       thanks: 'Thanks for joining and have a great day!'
     order:
       subject: 'You order created. GeekHub Shop'
+      order_updated_subject: 'Order updated | GeekHUB Shop'
+      order_status_changed_subject: 'Order status changed | GeekHub Shop'
       thanks: 'Thank you for your order, dear '
       sending: 'We send as soon as we can!'
       order_id: 'Order id: '
@@ -118,6 +139,9 @@ en:
       price: 'Price'
       total_price: 'Total price: '
       if_edit: ' If you want to edit your order or discard - contact with as! Thanks in advance!'
+      dear: 'Dear '
+      order_changed: ', your order has been changed!'
+      order_status_changed: ', your order status has been changed to'
 
   send: 'Send'
   create: 'Create'
@@ -135,6 +159,7 @@ en:
   new_product: 'New Product'
   all_categories: 'Categories'
   all_products: 'Products'
+  all_orders: 'Orders'
   found_nothing: 'We have not found anything like a '
   confirmation: 'Are you sure?'
   error: 'error'

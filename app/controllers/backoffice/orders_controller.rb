@@ -26,7 +26,7 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
     if @order.update_attributes(order_params)
       OrderMailer.order_updated(@order).deliver!
       redirect_to admin: @order
-      flash[:notice] = 'Edited'
+      flash[:notice] = t('backoffice.orders.updated')
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
 
   def destroy
     @order.destroy
-    redirect_to admin_orders_path, notice: 'Order destroyed'
+    redirect_to admin_orders_path, notice: t('backoffice.orders.destroyed')
   end
 
   def change_status
@@ -46,7 +46,7 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
 
   def send_order_confirmation
     OrderMailer.confirmation(@order).deliver!
-    flash[:notice] = 'Email sent'
+    flash[:notice] = t('backoffice.orders.email_sent')
     render :'backoffice/orders/show'
   end
 

@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1> GeeKHub SHOP</h1>
-<h2> Dear <%= @order.full_name.capitalize %>, your order has been changed!</h2>
+<h2> <%= t('mailer.order.dear') %> <%= @order.full_name.capitalize %><%= t('mailer.order.order_changed') %></h2>
 <div>
   <h3><%= t('mailer.order.order_id') %><b><%= @order.id %></b></h3>
   <table>
@@ -24,9 +24,9 @@
       <% end %>
     </ul>
   </table>
-  <h3>To address: <%= @order.address.capitalize %></h3>
+  <h3><%= t('backoffice.orders.show.address') %> <%= @order.address.capitalize %></h3>
   <h2><%= t('mailer.order.total_price') %> <b><%= @order.total_price %></b></h2>
-  <h1>Current status: <b><i><%= @order.status %></i></b></h1>
+  <h1><%= t('backoffice.orders.index.status') %> <b><i><%= @order.status %></i></b></h1>
 </div>
 <div>
   <%= t('mailer.order.if_edit') %>

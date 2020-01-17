@@ -43,6 +43,25 @@ ru:
         add_more: 'Добавить ещё изображения'
         submit:
           '%{action} продукт'
+    orders:
+      updated: 'Заказ отредактирован'
+      destroyed: 'Заказ удалён'
+      email_sent: 'Письмо отправленно'
+      form:
+        total_price: 'Полная цена: '
+        submit: 'Подтвердить'
+      edit:
+        title: 'Редактировать заказ'
+      index:
+        search: 'ID'
+        created_at: 'Создано'
+        status: 'Статус'
+      show:
+        fullname: 'Полное имя: '
+        address: 'Адресс: '
+        phone: 'Телефон: '
+        change_status: 'Изменить статус'
+        send_mail: 'Отправить письмо снова'
   controllers:
     admin_verify: 'У вас нет прав'
     categories:
@@ -110,14 +129,19 @@ ru:
       thanks: 'Спасибо за ваше доверие!'
     order:
       subject: 'Ваш заказ принят!'
+      order_updated_subject: 'Заказ изменён| GeekHUB Shop'
+      order_status_changed_subject: 'Статус заказа изменён | GeekHub Shop'
       thanks: 'Спасибо за ваш заказ,  '
-      sending: 'Мы отправил так быстро, как сможем!'
+      sending: 'Мы отправим так быстро, как сможем!'
       order_id: 'Номер заказа: '
       product: 'Продукт'
       quantity: 'Количество'
       price: 'Цена'
       total_price: 'Сумма: '
       if_edit: 'Если вы хотите изменить или отменить заказ - сообщите нам! Спасибо! '
+      dear: 'Уважаемый '
+      order_changed: ', ваш заказ был изменён!'
+      order_status_changed: ', статус вашего заказа был изменён на '
 
   send: 'Отправить'
   create: 'Создать'
@@ -135,6 +159,7 @@ ru:
   new_product: 'Новый продукт'
   all_categories: 'Категории'
   all_products: 'Продукты'
+  all_orders: 'Заказы'
   found_nothing: 'Мы ничего не нашли похожее на '
   confirmation: 'Вы уверенны?'
   error: 'ошибка'

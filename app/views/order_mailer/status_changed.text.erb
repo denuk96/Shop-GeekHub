@@ -1,10 +1,10 @@
 GeekHub SHOP
-Dear <%= @order.full_name.capitalize %>, your order status has been changed to <%= @order.status %>
+<%= t('mailer.order.dear') %> <%= @order.full_name.capitalize %> <%= t('mailer.order.order_status_changed') %> <%= @order.status %>
 <%= t('mailer.order.order_id') %> <%= @order.id %>
 <% @order.cart_items.each do |item| %>
   <%= t('mailer.order.product') %><%= item.product.title %>, x<%= item.quantity %>,<%= item.price %>
 <% end %>
 <%= t('mailer.order.total_price') %> <%= @order.total_price %>
-To address: <%= @order.address.capitalize %>
+<%= t('backoffice.orders.show.address') %> <%= @order.address.capitalize %>
 <%= t('mailer.order.if_edit') %>
 <%= t('mailer.common.created_by') %>

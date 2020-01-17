@@ -4,6 +4,8 @@ en:
       category: 'Category'
       product: 'Product'
       product_categories: 'Categories'
+      order: 'Order'
+      cart: 'Cart'
     attributes:
       category:
         title: 'Title'
@@ -19,6 +21,11 @@ en:
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Password confirmation'
+      order:
+        full_name: 'Full name'
+        address: 'Address'
+        phone: 'Phone'
+        status: 'Status'
     errors:
       models:
         product:

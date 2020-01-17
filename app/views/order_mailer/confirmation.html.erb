@@ -24,7 +24,7 @@
       <% end %>
     </ul>
   </table>
-  <h3>To address: <%= @order.address.capitalize %></h3>
+  <h3><%= t('backoffice.orders.show.address') %> <%= @order.address.capitalize %></h3>
   <h2><%= t('mailer.order.total_price') %> <b><%= @order.total_price %></b></h2>
 </div>
 <div>

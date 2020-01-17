@@ -14,7 +14,7 @@
       </div>
     <% end %>
 
-    <b><%= @order.user.email %></b>
+    <b><%= @order.user.email %></b><br>
 
     <div class="field">
       <%= form.label :full_name %>
@@ -67,7 +67,7 @@
     </div>
 
     <h3>
-      Total price:
+      <%= t('.total_price') %>
       <%= @order.total_price %>
     </h3>
 

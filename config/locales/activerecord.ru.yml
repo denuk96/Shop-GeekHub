@@ -4,6 +4,8 @@ ru:
       category: 'Категория'
       product: 'Продукт'
       product_category: 'Категории'
+      order: 'Order'
+      cart: 'Cart'
     attributes:
       category:
         title: 'Заголовок'
@@ -19,6 +21,11 @@ ru:
         email: 'Почта'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+      order:
+        full_name: 'Полное имя'
+        address: 'Адресс'
+        phone: 'Контактный телефон'
+        status: 'Статус'
     errors:
       models:
         product:

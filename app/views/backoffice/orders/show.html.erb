@@ -4,15 +4,15 @@
       <%= t('mailer.order.order_id') %><b><%= @order.id %></b>
     </h2>
     <p>
-      <i>Full name: </i> <br>
+      <i><%= t('.fullname') %> </i> <br>
       <%= @order.full_name %>
     </p>
     <p>
-      <i>Address: </i><br>
+      <i><%= t('.address') %> </i><br>
       <%= @order.address %>
     </p>
     <p>
-      <i>Phone: </i><br>
+      <i><%= t('.phone') %></i><br>
       <%= @order.phone %>
     </p>
     <table>
@@ -35,14 +35,14 @@
       <b><%= @order.total_price %></b>
     </h2>
     <br>
-    <h1><i>status:</i> <br>
+    <h1><i><%= t('backoffice.orders.index.status') %></i> <br>
       <b><%= @order.status.capitalize %></b>
     </h1>
     <p>
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Change status
+          <%= t('.change_status') %>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <% Order::STATUS_TYPES.each do |types| %>
@@ -51,7 +51,7 @@
         </div>
         <br>
         <p>
-          <%= link_to 'send email again', send_order_confirmation_admin_orders_path(id: @order),
+          <%= link_to t('.send_mail'), send_order_confirmation_admin_orders_path(id: @order),
                       class: 'btn btn-outline-primary' %>
         </p>
       </div>

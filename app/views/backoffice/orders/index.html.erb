@@ -1,11 +1,11 @@
 <div class="container">
   <div class="form-inline">
     <%= form_tag(admin_orders_path, method: "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: 'by_id', class:'form-control' %>
+      <%= text_field_tag :search, params[:search], placeholder: t('.search'), class:'form-control' %>
       <button type="submit" class="btn btn-outline-light"><i class="fa fa-search"></i></button>
     <% end %>
   </div>
-  <h1>Orders</h1>
+  <h1><%= t('all_orders') %></h1>
   <div class="dropdown">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= t('products.index.sort.sort_by') %> <%= params[:sort] %>
@@ -21,8 +21,8 @@
   <table>
     <tr>
       <th>ID</th>
-      <th>Created at</th>
-      <th>Status</th>
+      <th><%= t('.created_at') %></th>
+      <th><%= t('.status') %></th>
       <th><%= t('actions') %></th>
     </tr>
     <ul>
