@@ -1,5 +1,5 @@
-<%= t('mailer.order.thanks') %> <%= @order.full_name.capitalize %>
-<%= t('mailer.order.sending') %>
+GeekHub SHOP
+Dear <%= @order.full_name.capitalize %>, your order status has been changed to <%= @order.status %>
 <%= t('mailer.order.order_id') %> <%= @order.id %>
 <% @order.cart_items.each do |item| %>
   <%= t('mailer.order.product') %><%= item.product.title %>, x<%= item.quantity %>,<%= item.price %>

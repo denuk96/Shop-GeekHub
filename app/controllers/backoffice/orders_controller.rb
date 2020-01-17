@@ -23,6 +23,7 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
 
   def update
     if @order.update_attributes(order_params)
+      OrderMailer.order_updated(@order).deliver!
       redirect_to admin: @order
       flash[:notice] = 'Edited'
     else
@@ -38,6 +39,7 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
   def change_status
     @order.status = params[:status]
     @order.save
+    OrderMailer.status_changed(@order).deliver!
     render :show
   end
 

@@ -4,8 +4,8 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1> <%= t('mailer.order.thanks') %> <%= @order.full_name.capitalize %></h1>
-<h2> <%= t('mailer.order.sending') %></h2>
+<h1> GeeKHub SHOP</h1>
+<h2> Dear <%= @order.full_name.capitalize %>, your order has been changed!</h2>
 <div>
   <h3><%= t('mailer.order.order_id') %><b><%= @order.id %></b></h3>
   <table>
@@ -26,9 +26,10 @@
   </table>
   <h3>To address: <%= @order.address.capitalize %></h3>
   <h2><%= t('mailer.order.total_price') %> <b><%= @order.total_price %></b></h2>
+  <h1>Current status: <b><i><%= @order.status %></i></b></h1>
 </div>
 <div>
- <%= t('mailer.order.if_edit') %>
+  <%= t('mailer.order.if_edit') %>
 </div>
 <p>
   <i><%= t('mailer.common.created_by') %></i>
