@@ -22,6 +22,11 @@ class Order < ApplicationRecord
   validates :full_name, :address, :phone, presence: true
   validates :status, inclusion: STATUS_TYPES
 
+  scope :new_order, -> { where(status: 'new') }
+  scope :in_progress, -> { where(status: 'in progress') }
+  scope :completed, -> { where(status: 'completed') }
+  scope :cancelled, -> { where(status: 'cancelled') }
+
   after_create :send_confirmation
 
   def add_cart_items_from_cart(cart)
