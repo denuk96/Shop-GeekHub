@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :current_user_already_exist?
 
+  def index
+    redirect_to signup_path
+  end
+
   def new
     @user = User.new
   end
