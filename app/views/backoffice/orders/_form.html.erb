@@ -32,6 +32,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :admin_comment %>
+      <%= form.text_field :admin_comment, class: "form-control" %>
+    </div>
+
+    <div class="field">
       <%= form.label :status %><br>
       <%= form.select :status, Order::STATUS_TYPES, prompt: 'Status', class: 'form-control' %>
     </div>

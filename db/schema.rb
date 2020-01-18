@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_14_171243) do
+ActiveRecord::Schema.define(version: 2020_01_18_113427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 2020_01_14_171243) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "admin_messages", force: :cascade do |t|
+    t.string "message"
+    t.boolean "send", default: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_admin_messages_on_order_id"
   end
 
   create_table "cart_items", force: :cascade do |t|
@@ -94,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_01_14_171243) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "phone"
     t.float "total_price"
+    t.string "admin_comment"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -127,6 +137,7 @@ ActiveRecord::Schema.define(version: 2020_01_14_171243) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "admin_messages", "orders"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "orders"
   add_foreign_key "cart_items", "products"

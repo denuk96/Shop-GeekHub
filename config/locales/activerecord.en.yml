@@ -26,6 +26,8 @@ en:
         address: 'Address'
         phone: 'Phone'
         status: 'Status'
+        admin_comment: 'Comment (optional)'
+        submit: 'Submit'
     errors:
       models:
         product:

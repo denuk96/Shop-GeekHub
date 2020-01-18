@@ -1,0 +1,21 @@
+<br>
+<h5> <%= t('backoffice.orders.show.change_status') %></h5>
+
+<%= form_with(model: [:admin, @order ],local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :admin_comment %>
+    <%= form.text_field :admin_comment, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %><br>
+    <%= form.select :status, Order::STATUS_TYPES, prompt: 'Select a status' %>
+  </div>
+
+  <div class="text-center actions">
+    <%= form.submit t('backoffice.orders.show.submit'), class: "btn btn-light" %>
+  </div>
+
+<% end %>
+<br>

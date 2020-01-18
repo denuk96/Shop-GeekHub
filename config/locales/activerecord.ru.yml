@@ -26,6 +26,8 @@ ru:
         address: 'Адресс'
         phone: 'Контактный телефон'
         status: 'Статус'
+        admin_comment: 'Комментарий (опционально)'
+        submit: 'Подтвердить'
     errors:
       models:
         product:
