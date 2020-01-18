@@ -1,6 +1,10 @@
 GeekHub Shop
 <%= t('mailer.order.dear') %> <%= @order.full_name.capitalize %><%= t('mailer.order.order_changed') %>.
 <%= t('mailer.order.order_id') %> <%= @order.id %>
+<% if @order.admin_comment? %>
+  GeekHub Shop:
+  <%= @order.admin_comment %>
+<% end %>
 <% @order.cart_items.each do |item| %>
   <%= t('mailer.order.product') %><%= item.product.title %>, x<%= item.quantity %>,<%= item.price %>
 <% end %>

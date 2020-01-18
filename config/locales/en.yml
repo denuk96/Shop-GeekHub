@@ -60,8 +60,9 @@ en:
         fullname: 'Full name: '
         address: 'Address: '
         phone: 'Phone: '
-        change_status: 'Change status'
+        change_status: 'Change status and send optional message'
         send_mail: 'Send email again'
+        submit: 'Submit'
   controllers:
     admin_verify: 'You have no right'
     categories:
@@ -140,7 +141,7 @@ en:
       total_price: 'Total price: '
       if_edit: ' If you want to edit your order or discard - contact with as! Thanks in advance!'
       dear: 'Dear '
-      order_changed: ', your order has been changed!'
+      order_changed: ', your order has been updated!'
       order_status_changed: ', your order status has been changed to'
 
   send: 'Send'

@@ -37,13 +37,6 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
     redirect_to admin_orders_path, notice: t('backoffice.orders.destroyed')
   end
 
-  def change_status
-    @order.status = params[:status]
-    @order.save
-    OrderMailer.status_changed(@order).deliver!
-    render :show
-  end
-
   def send_order_confirmation
     OrderMailer.confirmation(@order).deliver!
     flash[:notice] = t('backoffice.orders.email_sent')
@@ -61,6 +54,6 @@ class Backoffice::OrdersController < Backoffice::BackofficeController
   end
 
   def order_params
-    params.require(:order).permit(:full_name, :address, :phone, :status)
+    params.require(:order).permit(:full_name, :address, :phone, :status, :admin_comment)
   end
 end

@@ -8,6 +8,11 @@
 <h2> <%= t('mailer.order.dear') %> <%= @order.full_name.capitalize %><%= t('mailer.order.order_changed') %></h2>
 <div>
   <h3><%= t('mailer.order.order_id') %><b><%= @order.id %></b></h3>
+  <% if @order.admin_comment? %>
+    <h4>GeekHub Shop:</h4>
+    <p><%= @order.admin_comment %></p>
+  <% end %>
+  <br>
   <table>
     <tr>
       <th><%= t('mailer.order.product') %></th>

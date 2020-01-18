@@ -60,8 +60,9 @@ ru:
         fullname: 'Полное имя: '
         address: 'Адресс: '
         phone: 'Телефон: '
-        change_status: 'Изменить статус'
+        change_status: 'Изменить статус и/или оставить сообщение'
         send_mail: 'Отправить письмо снова'
+        submit: 'Подтвердить'
   controllers:
     admin_verify: 'У вас нет прав'
     categories:
@@ -140,7 +141,7 @@ ru:
       total_price: 'Сумма: '
       if_edit: 'Если вы хотите изменить или отменить заказ - сообщите нам! Спасибо! '
       dear: 'Уважаемый '
-      order_changed: ', ваш заказ был изменён!'
+      order_changed: ', ваш заказ был обновлён!'
       order_status_changed: ', статус вашего заказа был изменён на '
 
   send: 'Отправить'
