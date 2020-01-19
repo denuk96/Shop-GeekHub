@@ -14,7 +14,7 @@
         <% if current_user %>
           <%= link_to purchase_cart_path(id: current_user) do %>
             <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
-            <% if current_user.cart.cart_items.present? %>
+            <% if current_user.cart&.cart_items.present? %>
               <span class="badge badge-danger">
                 <%= current_user.cart.cart_items.count %>
               </span>
@@ -85,6 +85,13 @@
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user&.email %>
           </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to t('my_orders'), purchase_orders_path(current_user), class: 'dropdown-item' %>
+            <%= link_to t('my_cart'), purchase_cart_path(current_user), class: 'dropdown-item' %>
+            <div class="dropdown-divider"></div>
+            <%= link_to logout_path, class: 'dropdown-item' do %>
+              <%= t('navbar.authentication.logout') %> <i class="fas fa-sign-out-alt"></i>
+            <% end %>
         <% else %>
           <span class="link">
             <%= link_to t('navbar.authentication.signup'), signup_path, class: 'link' %>
@@ -94,13 +101,6 @@
             <%= link_to t('navbar.authentication.login'), login_path, class: 'link' %>
           </span>
         <% end %>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to t('my_orders'), purchase_orders_path(current_user), class: 'dropdown-item' %>
-          <%= link_to t('my_cart'), purchase_cart_path(current_user), class: 'dropdown-item' %>
-          <div class="dropdown-divider"></div>
-          <%= link_to logout_path, class: 'dropdown-item' do %>
-            <%= t('navbar.authentication.logout') %> <i class="fas fa-sign-out-alt"></i>
-          <% end %>
         </div>
       </div>
     </div>

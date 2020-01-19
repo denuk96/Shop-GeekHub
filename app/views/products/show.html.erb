@@ -42,7 +42,11 @@
             <h5 class="card-title price row">
               <strong class="left"><%= @product.price %></strong>
               <span class="right">
-                <i class="fas fa-star"></i><%= count_average_rating(@product).round(1) %>
+                <span class="rating">
+                  <% if @product.comments.present?  %>
+                    <%= render_stars(count_average_rating(@product).round(1)) %>
+                  <% end %>
+                </span>
                 <% if current_user %>
                   <%= link_to purchase_buy_path(product_id: @product.id) do %>
                     <i class="fas fa-cart-arrow-down cart-link"></i>
