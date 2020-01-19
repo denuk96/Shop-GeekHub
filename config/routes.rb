@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'products#index', as: 'home'
 
+  get '/static_pages/:page' => 'static_pages#show', as: 'static_page'
+
   resources :products do
     resources :images, controller: 'backoffice/images'
     resources :comments

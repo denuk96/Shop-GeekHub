@@ -56,7 +56,7 @@
           <b><%= t('mailer.order.total_price') %> <%= @cart.total_price %></b>
        </span>
       <span class="rightstr">
-          <%= link_to 'CheckOut', new_purchase_order_path(cart: @cart),
+          <%= link_to t('order.new.do_order'), new_purchase_order_path(cart: @cart),
                       data: { confirm: t('confirmation') }, class: 'btn btn-success btn-sm btn-cart' %>
       </span>
     </div>

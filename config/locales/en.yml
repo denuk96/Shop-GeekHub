@@ -33,6 +33,10 @@ en:
   cart:
     show:
       cart_is_empty: 'Your cart is empty'
+  order:
+    new:
+      do_order: 'Do order'
+      title: 'New order'
   backoffice:
     categories:
       form:
@@ -172,5 +176,6 @@ en:
   times_rated: 'Times rated'
   clean: 'Clean the cart'
   my_orders: 'My orders'
+  my_cart: 'My cart'
 
 

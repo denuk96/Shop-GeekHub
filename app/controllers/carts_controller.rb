@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   before_action :set_cart
 
   def show
-    @cart_items = CartItem.all.where(cart_id: @cart.id).order(updated_at: :desc)
+    @cart_items = CartItem.all.where(cart_id: @cart.id).order(created_at: :desc)
   end
 
   def destroy

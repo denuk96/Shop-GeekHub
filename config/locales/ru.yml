@@ -33,6 +33,10 @@ ru:
   cart:
     show:
       cart_is_empty: 'Ваша корзина пустая'
+  order:
+    new:
+      do_order: 'Заказать'
+      title: 'Новый заказ'
   backoffice:
     categories:
       form:
@@ -172,4 +176,6 @@ ru:
   times_rated: 'Количество отзывов'
   clean: 'Очистить корзину'
   my_orders: 'Мои заказы'
+  my_cart: 'Моя корзина'
+
 

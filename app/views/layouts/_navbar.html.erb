@@ -58,22 +58,11 @@
             <span class="sr-only">(current)</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">
-              <%= t('navbar.delivery') %>
-            </a>
-            <a class="dropdown-item" href="#">
-              <%= t('navbar.return') %>
-            </a>
+            <%= link_to t('navbar.delivery'), static_page_path(page: 'delivery'), class: "dropdown-item" %>
+            <%= link_to t('navbar.return'), static_page_path(page: 'return'), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <%= t('navbar.how_to_contact') %>
-            </a>
+            <%= link_to t('navbar.about'), static_page_path(page: 'about_us'), class: "dropdown-item" %>
           </div>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <%= t('navbar.about') %>
-          </a>
         </li>
         <li class="nav-item">
           <%= link_to t('navbar.backoffice'), admin_categories_path, class: 'nav-link' if current_user&.admin? %>
@@ -106,9 +95,8 @@
           </span>
         <% end %>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">
-            <%= t('navbar.profile') %>
-          </a>
+          <%= link_to t('my_orders'), purchase_orders_path(current_user), class: 'dropdown-item' %>
+          <%= link_to t('my_cart'), purchase_cart_path(current_user), class: 'dropdown-item' %>
           <div class="dropdown-divider"></div>
           <%= link_to logout_path, class: 'dropdown-item' do %>
             <%= t('navbar.authentication.logout') %> <i class="fas fa-sign-out-alt"></i>

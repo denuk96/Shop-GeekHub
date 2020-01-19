@@ -7,10 +7,6 @@ class OrdersController < ApplicationController
     @orders = Order.where(user_id: current_user.id).order(updated_at: :desc)
   end
 
-  def show
-    @order = Order.find_by(id: params[:id], user_id: current_user.id)
-  end
-
   def new
     @order = Order.new
   end
@@ -21,7 +17,7 @@ class OrdersController < ApplicationController
     @order.user_id = current_user.id
     @order.total_price = @cart.total_price
     if @order.save
-      redirect_to purchase_order_path(@order), notice: t('controllers.order.create')
+      redirect_to purchase_orders_path, notice: t('controllers.order.create')
     else
       render :new
     end
