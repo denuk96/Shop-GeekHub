@@ -30,6 +30,9 @@ ru:
       commenter: 'Автор: '
       comment: 'Коментарий: '
       rating: 'Рейтинг: '
+  cart:
+    show:
+      cart_is_empty: 'Ваша корзина пустая'
   backoffice:
     categories:
       form:
@@ -167,4 +170,6 @@ ru:
   errorrs: 'ошибки'
   avg_rating: 'Средний рейтинг'
   times_rated: 'Количество отзывов'
+  clean: 'Очистить корзину'
+  my_orders: 'Мои заказы'
 

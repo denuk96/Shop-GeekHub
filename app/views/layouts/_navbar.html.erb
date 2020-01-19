@@ -1,15 +1,31 @@
-<div class="container flash_targe" id="flash_target">
+<div class="container flash_target" id="flash_target">
+
   <div class="navbar">
     <%= link_to home_path do %>
       <div class="logo">
-        <img src="https://picua.org/images/2019/12/18/392d23640b342252dc54600a394c47b2.png"  width="300" height="70" alt="logo">
+        <img src="https://picua.org/images/2019/12/18/392d23640b342252dc54600a394c47b2.png" width="300" height="70" alt="logo">
       </div>
     <% end %>
     <%= form_tag(products_path, method: "get", class: 'form-inline', id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: t('search'), class:'form-control mr-sm-2' %>
-      <button type="submit" class="search-nav"><i class="fa fa-search link"></i></button>
+      <button type="submit" class="search-nav nav-icons"><i class="fa fa-search link"></i></button>
       <bold>|</bold>
-      <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
+      <span class="nav-icons">
+        <% if current_user %>
+          <%= link_to purchase_cart_path(id: current_user) do %>
+            <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
+            <% if current_user.cart.cart_items.present? %>
+              <span class="badge badge-danger">
+                <%= current_user.cart.cart_items.count %>
+              </span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to login_path do %>
+            <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
+          <% end %>
+        <% end %>
+      </span>
     <% end %>
   </div>
 
@@ -102,5 +118,3 @@
     </div>
   </nav>
 </div>
-
-<%= link_to 'cart', purchase_cart_path(id: current_user.id) if current_user%>

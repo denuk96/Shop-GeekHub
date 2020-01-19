@@ -23,6 +23,10 @@ em {
     font-size: 25px;
 }
 
+.nav-icons {
+    font-size: 20px;
+}
+
 .field {
     margin-bottom: 10px;
 }
@@ -41,6 +45,21 @@ em {
 .link:hover {
     text-decoration: none;
     color: white;
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+.cart-link {
+    marging-top: 2px;
+    text-decoration: none;
+    color: #ff9b2f;
+    opacity: 0.85;
+    transition: all 0.8s ease-out;
+}
+
+.cart-link:hover {
+    text-decoration: none;
+    color: orange;
     opacity: 1;
     transform: scale(1.03);
 }

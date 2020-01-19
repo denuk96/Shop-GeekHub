@@ -1,32 +1,69 @@
 <div class="container">
-  <%= link_to t('destroy'), purchase_cart_path(@cart), method: :delete,
-              data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
-  <%= link_to 'CheckOut', new_purchase_order_path(cart: @cart),
-              data: { confirm: t('confirmation') }, class: 'btn btn-outline-light' %>
-  <%= link_to 'orders', purchase_orders_path, class: 'btn btn-outline-light' %>
-  <p>
-    <b>Total: <%= @cart.total_price %></b>
-  </p>
-  <div class="justify-content-center " >
-    <% @cart_items.each do |cart_item| %>
-      <br>
-      <%= cart_item.product.title %>
-      <div style="max-height: 200px; max-width: 200px">
-        <% if cart_item.product.images? %>
-          <%= image_tag cart_item.product.images.first.url(:small), class:'index_image' %>
-        <% else %>
-          <%= image_tag("https://picua.org/images/2019/12/27/31783d15d36cb0de20e5556443e01916.jpg",
-                        class:'alt_image index_image') %>
-        <% end %>
-      </div>
-      <%= cart_item.quantity %>
-      <br>
-      <%= cart_item.price %>
-      <%= link_to 'add one', purchase_increase_cart_item_path(id: cart_item.id), style: 'color: red;' %>
-      <%= link_to 'remove one', purchase_decrease_cart_item_path(id: cart_item.id), style: 'color: red;' %>
-      <%= link_to t('destroy'), purchase_cart_item_path(cart_item), method: :delete,
-                  data: { confirm: t('confirmation') } %>
-      <br>
-    <% end %>
-  </div>
+  <%= link_to t('clean'), purchase_cart_path(@cart), method: :delete,
+              data: { confirm: t('confirmation') }, class: 'btn btn-danger' %>
+
+  <%= link_to t('my_orders'), purchase_orders_path, class: 'btn btn-light' %>
+  <% @cart_items.each do |cart_item| %>
+    <div class="cart-item">
+        <span class="leftstr">
+          <%= link_to cart_item.product.title, product_path(id: cart_item.product), class: 'link cart_item_title' %>
+        </span>
+      <span class="rightstr">
+            <%= link_to purchase_cart_item_path(cart_item), method: :delete,
+                        data: { confirm: t('confirmation') } do %>
+              <span class="badge badge-danger">×</span>
+            <% end %>
+        </span>
+      </p>
+      <ul class="cart-item-list">
+        <li>
+          <%= link_to product_path(id: cart_item.product) do %>
+            <% if cart_item.product.images? %>
+              <%= image_tag cart_item.product.images.first.url(:small), class:'' %>
+            <% else %>
+              <%= image_tag("https://picua.org/images/2019/12/27/31783d15d36cb0de20e5556443e01916.jpg",
+                            class:'cart_item_image') %>
+            <% end %>
+          <% end %>
+        </li>
+        <li>
+            <span class="cart-item_cost">
+              <%= t('price') %>: <%= cart_item.price %>
+            </span>
+        </li>
+        <li>
+          <%= link_to '-', purchase_decrease_cart_item_path(id: cart_item.id),  class: 'link cart_item_quantity' %>
+        </li>
+        <li>
+            <span class="cart_quantity_sum">
+               <%= cart_item.quantity %>
+            </span>
+        </li>
+        <li>
+          <%= link_to '+', purchase_increase_cart_item_path(id: cart_item.id), class: 'link cart_item_quantity' %>
+        </li>
+        <li>
+            <span class="cart_item_total_price">
+              <%= t('mailer.order.total_price') %><%= cart_item.total_price %>
+            </span>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+  <% if @cart.cart_items.present? %>
+    <div class="alert alert-warning cart_footer" role="alert">
+      <span class="leftstr">
+          <b><%= t('mailer.order.total_price') %> <%= @cart.total_price %></b>
+       </span>
+      <span class="rightstr">
+          <%= link_to 'CheckOut', new_purchase_order_path(cart: @cart),
+                      data: { confirm: t('confirmation') }, class: 'btn btn-success btn-sm btn-cart' %>
+      </span>
+    </div>
+  <% else %>
+    <div class="alert alert-warning cart_footer" role="alert">
+      <b><strong><%= t('cart.show.cart_is_empty') %></strong></b>
+    </div>
+  <% end %>
 </div>
+

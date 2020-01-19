@@ -30,6 +30,9 @@ en:
       commenter: 'Commenter: '
       comment: 'Comment: '
       rating: 'Rating: '
+  cart:
+    show:
+      cart_is_empty: 'Your cart is empty'
   backoffice:
     categories:
       form:
@@ -138,7 +141,7 @@ en:
       product: 'Product'
       quantity: 'Quantity'
       price: 'Price'
-      total_price: 'Total price: '
+      total_price: 'Total: '
       if_edit: ' If you want to edit your order or discard - contact with as! Thanks in advance!'
       dear: 'Dear '
       order_changed: ', your order has been updated!'
@@ -167,5 +170,7 @@ en:
   errorrs: 'errors'
   avg_rating: 'Rating average'
   times_rated: 'Times rated'
+  clean: 'Clean the cart'
+  my_orders: 'My orders'
 
 
