@@ -48,6 +48,8 @@
                       <span class="rating">
                         <% if product.comments.present?  %>
                           <%= render_stars(count_average_rating(product).round(1)) %>
+                        <% else  %>
+                          <%= link_to t('be_first'), product_path(product), class: 'link' %>
                         <% end %>
                       </span>
                       <span>

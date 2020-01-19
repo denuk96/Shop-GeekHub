@@ -37,6 +37,8 @@ en:
     new:
       do_order: 'Do order'
       title: 'New order'
+    index:
+      has_no_orders: 'Your orders will be here!'
   backoffice:
     categories:
       form:
@@ -102,7 +104,7 @@ en:
     cart_item:
       created: 'Added to cart'
       destroy: 'Removed'
-      time_is_out: 'Time is out'
+      time_is_out: 'Time is out (1 hour). Please, add product again'
     order:
       create: 'Your order has been received. Our manager will contact you soon. Also we sent a bill on your email. Thanks for your trust! '
       empty: 'Cart is empty'
@@ -177,5 +179,6 @@ en:
   clean: 'Clean the cart'
   my_orders: 'My orders'
   my_cart: 'My cart'
+  be_first: 'Be first!'
 
 

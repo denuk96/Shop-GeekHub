@@ -1,36 +1,38 @@
-<style>
-  .orders {
-    background-color: rgb(222, 235, 255);
-    color: black;
-  }
-</style>
 <div class="container">
-  <% @orders.each do |order| %>
-    <div class="alert alert-primary orders" role="alert">
-      <h3><%= t('mailer.order.order_id') %><b><%= order.id %></b></h3>
-      <%= t('backoffice.orders.index.status') %>: <%= order.status %>
-      <br>
-      <table>
-        <tr>
-          <th><%= t('mailer.order.product') %></th>
-          <th><%= t('mailer.order.quantity') %></th>
-          <th><%= t('mailer.order.price') %></th>
-        </tr>
-        <ul>
-          <% order.cart_items.each do |item| %>
-            <tr>
-              <td><%= link_to item.product.title, product_path(id: item.product) %></td>
-              <td><%= item.quantity %></td>
-              <td><%= item.price %></td>
-            </tr>
-          <% end %>
-        </ul>
-      </table>
-      <h3><%= t('mailer.order.total_price') %> <b><%= order.total_price %></b></h3>
-
-      <% if order.admin_comment? %>
-        <i>GeekHub Shop:</i> <%= order.admin_comment %>
-      <% end %>
+  <% if @orders.present? %>
+    <% @orders.each do |order| %>
+      <div class="alert alert-primary orders" role="alert">
+        <h3><%= t('mailer.order.order_id') %><b><%= order.id %></b></h3>
+        <%= t('backoffice.orders.index.status') %>: <%= order.status %>
+        <br>
+        <table>
+          <tr>
+            <th><%= t('mailer.order.product') %></th>
+            <th><%= t('mailer.order.quantity') %></th>
+            <th><%= t('mailer.order.price') %></th>
+          </tr>
+          <ul>
+            <% order.cart_items.each do |item| %>
+              <tr>
+                <td><%= link_to item.product.title, product_path(id: item.product) %></td>
+                <td><%= item.quantity %></td>
+                <td><%= item.price %></td>
+              </tr>
+            <% end %>
+          </ul>
+        </table>
+        <h3><%= t('mailer.order.total_price') %> <b><%= order.total_price %></b></h3>
+        <% if order.admin_comment? %>
+          <i>GeekHub Shop:</i> <%= order.admin_comment %>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="alert alert-dark" role="alert">
+      <%= t('order.index.has_no_orders') %>
     </div>
   <% end %>
+  <p>
+    <%= link_to t('my_cart'), purchase_cart_path(current_user), class: 'btn btn-light' %>
+  </p>
 </div>
