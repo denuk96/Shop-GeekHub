@@ -22,14 +22,7 @@ test:
   pool: 5
 
 production:
-  adapter: postgresql
-  host: 127.0.0.1
-  database: SHOP_production
+  <<: *default
+  database: shop_production
   username: deployer
   password: denuk96
-  encoding: unicode
-  pool: 5
-#  <<: *default
-#  database: shop_production
-#  username: <%#= Rails.application.credentials.aws[:db_user] %>
-#  password: <%#= Rails.application.credentials.aws[:db_password] %>
