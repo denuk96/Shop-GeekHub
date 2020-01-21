@@ -9,9 +9,9 @@ server '167.71.54.45', user: "#{fetch(:user)}", roles: %w{app db web}, primary: 
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :pty, true
 
-set :linked_files, %w{config/master.key config/secrets.yml}
+set :linked_files, %w{config/master.key config/secrets.yml config/credentials/production.key}
 
-append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/puma.rb', 'config/master.key'
+append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/puma.rb', 'config/master.key', 'config/credentials/production.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 
 set :config_example_suffix, '.example'
