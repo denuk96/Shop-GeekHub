@@ -83,3 +83,6 @@ yarn-debug.log*
 
 /.rubocop.yml
 /public/uploads
+/config/master.production.key
+
+/config/credentials/production.key

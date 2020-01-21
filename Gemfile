@@ -6,7 +6,7 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -52,12 +52,17 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # for deploying
   gem 'capistrano', '~> 3.8', '>= 3.8.1'
-  gem 'capistrano-rvm', '~> 0.1.2'
+  gem 'capistrano-rbenv'
+  #gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-rails', '~> 1.2', '>= 1.2.3'
-  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
+  gem 'capistrano3-puma'
   gem 'capistrano-nginx', '~> 1.0'
   gem 'capistrano-upload-config', '~> 0.7.0'
   gem 'sshkit-sudo', '~> 0.1.0'
+  #gem 'capistrano'
+  #gem 'capistrano-rails'
+  #gem 'capistrano-passenger'
+  #gem 'capistrano-rbenv'
 end
 
 group :test do
