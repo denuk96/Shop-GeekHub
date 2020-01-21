@@ -23,6 +23,6 @@ test:
 
 production:
   <<: *default
-  database: shop_production
+  database: shop
   username: deployer
   password: denuk96
