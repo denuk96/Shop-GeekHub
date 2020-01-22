@@ -32,6 +32,8 @@ gem 'mini_magick'
 gem 'russian', '~> 0.6.0'
 gem 'sorcery'
 
+gem 'capistrano-rails-collection'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -60,7 +62,7 @@ group :development do
   gem 'capistrano-upload-config', '~> 0.7.0'
   gem 'sshkit-sudo', '~> 0.1.0'
 
-  gem 'capistrano-rails-collection'
+
   #gem 'capistrano'
   #gem 'capistrano-rails'
   #gem 'capistrano-passenger'
