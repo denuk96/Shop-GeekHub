@@ -59,6 +59,8 @@ group :development do
   gem 'capistrano-nginx', '~> 1.0'
   gem 'capistrano-upload-config', '~> 0.7.0'
   gem 'sshkit-sudo', '~> 0.1.0'
+
+  gem 'capistrano-rails-collection'
   #gem 'capistrano'
   #gem 'capistrano-rails'
   #gem 'capistrano-passenger'
