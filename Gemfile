@@ -32,8 +32,6 @@ gem 'mini_magick'
 gem 'russian', '~> 0.6.0'
 gem 'sorcery'
 
-gem 'capistrano-rails-collection'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
