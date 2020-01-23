@@ -5,6 +5,7 @@ Rails.application.configure do
     port: 587,
     domain: 'example.com',
     user_name: 'blog.on.rails.test@gmail.com',
+
     #password: Rails.application.credentials.aws[:gmail],
     password: ENV['GMAIL'],
     authentication: 'plain',
