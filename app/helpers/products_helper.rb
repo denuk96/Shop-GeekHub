@@ -7,9 +7,7 @@ module ProductsHelper
 
   def render_stars(value)
     output = ''
-    if (1..5).include?(value.floor)
-      value.floor.times { output += '<i class="fas fa-star"></i>' }
-    end
+    value.floor.times { output += '<i class="fas fa-star"></i>' } if (1..5).include?(value.floor)
     if value == (value.floor + 0.5) && value.to_i != 5
       output += '<i class="fas fa-star-half-alt"></i>'
       @digit = 1

@@ -47,7 +47,7 @@ ru:
     products:
       form:
         existed_images: 'Уже существующие изображения: '
-        overiting_notice: 'Будет перезаписано после отправки этими: '
+        overiting_notice: 'Новые изображения: '
         add_image: 'Добавить к уже существующим изображениям '
         add_more: 'Добавить ещё изображения'
         submit:

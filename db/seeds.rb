@@ -7,15 +7,15 @@ end
 Category.create([{ title: 'Book', description: 'description' }, { title: 'Magazine', description: 'description' }, { title: 'Manga', description: 'description' }])
 
 15.times do |n|
-  Product.create(title: "Random product #{n}", description: "Book#{n} is a very interesting book", price: rand(100..999), category_ids: ["1"])
+  Product.create(title: "Random product #{n}", description: "Book#{n} is a very interesting book", price: rand(100..999), category_ids: ['1'])
 end
 
 15.times do |n|
-  Product.create(title: "Random book #{n}", description: "Book#{n} is a very interesting book", price: rand(100..999), category_ids: ["2"])
+  Product.create(title: "Random book #{n}", description: "Book#{n} is a very interesting book", price: rand(100..999), category_ids: ['2'])
 end
 
 15.times do |n|
-  Product.create(title: "Random stuff #{n}", description: "Book#{n} is a very interesting book", price: rand(100..999), category_ids: ["3"])
+  Product.create(title: "Random stuff #{n}", description: "Book#{n} is a very interesting book", price: rand(100..999), category_ids: ['3'])
 end
 
 30.times do

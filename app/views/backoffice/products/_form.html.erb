@@ -35,7 +35,7 @@
     </div>
 
     <div class="field">
-      <% if @product.save %>
+      <% if @product.save and @product.images.present? %>
         <h3><%= t('.existed_images') %></h3>
         <% @product.images.each_with_index do |image, index| %>
           <li>
@@ -45,11 +45,16 @@
           </li>
         <% end %>
       <% end %>
+      <br>
         <div class="upload-preview field">
           <h3><%= t('.overiting_notice') %></h3>
           <img />
         </div>
     </div>
+
+    <% @product.images.each do |image| %>
+      <%= hidden_field :product, :images, multiple: true, value: image.identifier %>
+    <% end %>
 
     <div class="field">
       <%= form.file_field :images, multiple: true, class: "file" %>
@@ -57,19 +62,9 @@
 
     <br>
     <div class="text-center actions">
-      <%= form.submit t('.submit', action: @product.new_record? ? t('create') : t('edit')), class: "btn btn-light" %>
+      <%= form.submit t('.submit', action: @product.new_record? ? t('create') : t('edit')), class: "btn btn-light btn-lg" %>
     </div>
   <% end %>
-
-  <div class="links">
-    <% if @product.save %>
-      <h3><%= t('.add_image') %></h3>
-      <%= form_for @product, url: product_images_path(@product), method: :post do |f|  %>
-        <%= f.file_field :images, multiple: true %>
-        <%= f.submit t('.add_more'), class: 'btn btn-outline-info' %>
-      <% end %>
-    <% end %>
-  </div>
 </div>
 <br>
 <script>

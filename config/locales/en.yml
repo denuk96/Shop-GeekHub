@@ -47,7 +47,7 @@ en:
     products:
       form:
         existed_images: 'Already existed images: '
-        overiting_notice: 'Will be overwritten after submit by: '
+        overiting_notice: 'New images: '
         add_image: 'Add to already existed images '
         add_more: 'Add more images'
         submit:

@@ -53,7 +53,7 @@ class CartItemsController < ApplicationController
   end
 
   # if customer adds product to cart with x price, it'd keep price x for current product
-  # even we change it. If product price and cart_item price equal, quantity increases,
+  # even we change it. If product price and cart_item price are equal, quantity increases,
   # otherwise it creates another one cart item in create method
   def item_exist_and_same_price?
     cart_items = CartItem.where(product_id: params[:product_id], cart_id: @cart.id)

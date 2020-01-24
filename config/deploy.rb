@@ -1,21 +1,21 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.2"
+lock '~> 3.11.2'
 
-set :application, "shop"
-set :repo_url, "git@github.com:denuk96/shop.git"
+set :application, 'shop'
+set :repo_url, 'git@github.com:denuk96/shop.git'
 
 set :user, 'deployer'
-server '167.71.54.45', user: "#{fetch(:user)}", roles: %w{app db web}, primary: true
-set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+server '167.71.54.45', user: fetch(:user).to_s, roles: %w[app db web], primary: true
+set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :pty, true
 
-set :linked_files, %w{config/master.key config/secrets.yml}
+set :linked_files, %w[config/master.key config/secrets.yml]
 
 append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/puma.rb', 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads'
 
 set :config_example_suffix, '.example'
-set :config_files, %w{config/database.yml config/secrets.yml}
+set :config_files, %w[config/database.yml config/secrets.yml]
 set :puma_conf, "#{shared_path}/config/puma.rb"
 
 namespace :deploy do
