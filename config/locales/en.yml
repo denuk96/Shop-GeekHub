@@ -99,6 +99,7 @@ en:
       logget_out: 'Logged out!'
     users:
       create: 'Welcome! Now you can log in!'
+      paswords_not_matches: "Password confirmation doesn't match Password"
     cart:
       destroy: 'Cart is cleared'
     cart_item:

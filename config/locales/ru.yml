@@ -99,6 +99,7 @@ ru:
       logget_out: 'Вы вышли'
     users:
       create: 'Добро пожаловать, теперь вы можете зайти'
+      paswords_not_matches: 'Пароли не совпадают'
     cart:
       destroy: 'Корзина очищина'
     cart_item:
