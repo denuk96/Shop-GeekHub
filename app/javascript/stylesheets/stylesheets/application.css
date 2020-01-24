@@ -64,6 +64,16 @@ em {
     transform: scale(1.03);
 }
 
+.categories {
+    text-decoration: none;
+    color: white;
+}
+
+.categories:hover {
+    text-decoration: none;
+    color: white;
+}
+
 #messages {
     display:none
 }

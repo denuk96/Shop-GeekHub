@@ -1,7 +1,8 @@
 <div class="container">
   <div class="d-flex">
     <div class="dropdown">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= t('.sort.sort_by') %>
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -21,7 +22,7 @@
           <div class="mb-4 card text-white bg-secondary ">
             <h2 class="card-header">
               <span class="product_title">
-                <%= link_to product.title, (product), class: 'link' %>
+                <%= link_to product.title, (product), class: 'product_link' %>
               </span>
               <br>
               <em>
@@ -79,7 +80,8 @@
     <% end %>
   </div>
   <div class="row justify-content-center ">
-    <%= will_paginate(@things, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    <%= will_paginate @things, previous_label: t("pagination.previous"), next_label: t("pagination.next"),
+                      renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer %>
   </div>
 </div>
 

@@ -66,7 +66,8 @@
     </ul>
   </table>
   <div class="row justify-content-center">
-    <%= will_paginate(@products, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm') %>
+    <%= will_paginate @products, previous_label: t("pagination.previous"), next_label: t("pagination.next"),
+                      renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination-sm' %>
   </div>
 </div>
 <script type="text/javascript" charset="utf-8">

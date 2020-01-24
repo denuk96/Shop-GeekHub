@@ -153,6 +153,9 @@ en:
       dear: 'Dear '
       order_changed: ', your order has been updated!'
       order_status_changed: ', your order status has been changed to'
+  pagination:
+    previous: 'Previous'
+    next: 'Next'
 
   send: 'Send'
   create: 'Create'
