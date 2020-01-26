@@ -3,6 +3,19 @@
 <head>
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
+<style>
+  table {
+    width: 300px;
+    border-collapse: collapse;
+  }
+  td, th {
+    padding: 3px;
+    border: 1px solid black;
+  }
+  th {
+    background: #b0e0e6;
+  }
+</style>
 <body>
 <h1> <%= t('mailer.order.thanks') %> <%= @order.full_name.capitalize %></h1>
 <h2> <%= t('mailer.order.sending') %></h2>

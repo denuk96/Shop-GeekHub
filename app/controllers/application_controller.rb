@@ -7,16 +7,15 @@ class ApplicationController < ActionController::Base
   end
 
   def user_logged_in?
-    redirect_to login_path, alert: 'Log in first' if current_user.nil?
+    redirect_to login_path, alert: t('login_first') if current_user.nil?
   end
 
   def set_cart
-    if Cart.find_by_user_id(current_user&.id).present?
-      @cart = Cart.find_by_user_id(current_user.id)
-    else
-      @cart = Cart.new(user_id: current_user.id)
-      @cart.save
-    end
+    @cart = if Cart.find_by_user_id(current_user&.id).present?
+              Cart.find_by_user_id(current_user.id)
+            else
+              Cart.create(user_id: current_user.id)
+            end
   end
 
   private

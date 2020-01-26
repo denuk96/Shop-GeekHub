@@ -1,8 +1,0 @@
-production:
-  adapter: postgresql
-  host: 127.0.0.1
-  database: shop
-  username: deployer
-  password: denuk96
-  encoding: unicode
-  pool: 5

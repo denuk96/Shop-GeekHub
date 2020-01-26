@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/, defaults: { locale: 'en' } do
+  scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     root 'products#index', as: 'home'
 
     get '/static_pages/:page' => 'static_pages#show', as: 'static_page'

@@ -3,7 +3,8 @@
   <div class="navbar">
     <%= link_to home_path do %>
       <div class="logo">
-        <img src="https://picua.org/images/2019/12/18/392d23640b342252dc54600a394c47b2.png" width="300" height="70" alt="logo">
+        <img src="https://picua.org/images/2019/12/18/392d23640b342252dc54600a394c47b2.png"
+             width="300" height="70" alt="logo">
       </div>
     <% end %>
     <%= form_tag(products_path, method: "get", class: 'form-inline', id: "search-form") do %>
@@ -89,7 +90,7 @@
             <%= current_user&.email %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to t('my_orders'), purchase_orders_path(current_user), class: 'dropdown-item' %>
+            <%= link_to t('my_orders'), purchase_orders_path, class: 'dropdown-item' %>
             <%= link_to t('my_cart'), purchase_cart_path(current_user), class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to logout_path, class: 'dropdown-item' do %>
