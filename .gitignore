@@ -87,3 +87,4 @@ yarn-debug.log*
 /config/master.production.key
 /config/database.production.yml
 /config/secrets.production.yml
+/config/master.production.key
