@@ -1,0 +1,6 @@
+$( "#buy-target-<%= @product.id %>" ).hide();
+$( "#buy-button-<%= @product.id %>" ).append(' <i class="fas fa-cart-plus"></i>')
+$("#buy-button-<%= @product.id %>").css('color', '#7CFC00');
+$(".cart-counter").hide();
+$( "#cart-target" ).append('<%= j render 'shared/carts_items_counter' %>');
+

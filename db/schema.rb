@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_18_113427) do
+ActiveRecord::Schema.define(version: 2020_01_26_095119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,9 @@ ActiveRecord::Schema.define(version: 2020_01_18_113427) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "images", default: [], array: true
     t.integer "cached_comments_total", default: 0
+    t.index ["cached_comments_total"], name: "index_products_on_cached_comments_total"
+    t.index ["created_at"], name: "index_products_on_created_at"
+    t.index ["price"], name: "index_products_on_price"
   end
 
   create_table "users", force: :cascade do |t|

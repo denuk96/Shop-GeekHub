@@ -55,8 +55,14 @@
                       </span>
                       <span>
                         <% if current_user %>
-                          <%= link_to purchase_buy_path(product_id: product.id) do %>
-                            <i class="fas fa-cart-arrow-down cart-link"></i>
+                          <% if already_in_cart?(product) %>
+                            <i class="fas fa-cart-plus added-to-cart"></i>
+                          <% else %>
+                            <span id="buy-button-<%= product.id %>">
+                              <%= link_to purchase_buy_path(product_id: product.id), remote: true do %>
+                                <i class="fas fa-cart-arrow-down cart-link" id="buy-target-<%= product.id %>"></i>
+                              <% end %>
+                            </span>
                           <% end %>
                         <% else %>
                           <%= link_to login_path do %>

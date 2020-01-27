@@ -13,14 +13,9 @@
       <bold>|</bold>
       <span class="nav-icons">
         <% if current_user %>
-          <%= link_to purchase_cart_path(id: current_user) do %>
-            <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
-            <% if current_user.cart&.cart_items.present? %>
-              <span class="badge badge-danger">
-                <%= current_user.cart.cart_items.count %>
-              </span>
-            <% end %>
-          <% end %>
+          <span id="cart-target">
+            <%= render 'shared/carts_items_counter' %>
+          </span>
         <% else %>
           <%= link_to login_path do %>
             <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
@@ -110,3 +105,4 @@
     </div>
   </nav>
 </div>
+

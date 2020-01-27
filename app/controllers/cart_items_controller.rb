@@ -14,11 +14,17 @@ class CartItemsController < ApplicationController
     else
       @cart_item = CartItem.new(cart_id: @cart.id, product_id: params[:product_id], price: @product.price)
     end
-    if @cart_item.save
-      redirect_to request.referrer, notice: t('controllers.cart_item.created')
-    else
-      redirect_to request.referrer, alert: @cart_item.errors.full_messages.first
-    end
+
+      if @cart_item.save
+        # redirect_to request.referrer, notice: t('controllers.cart_item.created')
+        respond_to do |format|
+          format.js { render 'cart_items/create_cart_item', status: :created }
+        end
+      else
+       redirect_to request.referrer, alert: @cart_item.errors.full_messages.first
+
+      end
+
   end
 
   def destroy
