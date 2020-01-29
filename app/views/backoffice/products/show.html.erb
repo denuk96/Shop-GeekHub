@@ -21,7 +21,6 @@
       <strong><%= t('price') %>: </strong> <%= @product.price %>
     </p>
      <div>
-<!--       за две ночи дошло..сон для слабаков!-->
        <% @product.images.each_with_index do |image, index| %>
          <%= image_tag(image.url(:medium), id: index, class: 'image') %>
            <script type="text/javascript" charset="utf-8">

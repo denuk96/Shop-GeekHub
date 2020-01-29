@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include CheckAuthorization
   before_action :current_user_already_exist?
 
   def index
