@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+  include CheckAuthorization
+  include SetCart
   before_action :user_logged_in?
   before_action :set_cart
   before_action :set_cart_item, only: %i[destroy increase_cart_item decrease_cart_item]
@@ -15,7 +17,9 @@ class CartItemsController < ApplicationController
       @cart_item = CartItem.new(cart_id: @cart.id, product_id: params[:product_id], price: @product.price)
     end
     if @cart_item.save
-      redirect_to request.referrer, notice: t('controllers.cart_item.created')
+      respond_to do |format|
+        format.js { render 'cart_items/create_cart_item', status: :created }
+      end
     else
       redirect_to request.referrer, alert: @cart_item.errors.full_messages.first
     end

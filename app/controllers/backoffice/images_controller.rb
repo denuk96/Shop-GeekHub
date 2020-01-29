@@ -14,9 +14,9 @@ class Backoffice::ImagesController < Backoffice::BackofficeController
   end
 
   def remove_image_at_index(index)
-    remain_images = @product.images # copy the array
-    deleted_image = remain_images.delete_at(index) # delete the target image
-    deleted_image.try(:remove!) # delete image from S3
-    @product.images = remain_images # re-assign back
+    remain_images = @product.images
+    deleted_image = remain_images.delete_at(index)
+    deleted_image.try(:remove!)
+    @product.images = remain_images
   end
 end

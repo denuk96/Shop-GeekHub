@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  include CheckAuthorization
+  include SetCart
   before_action :user_logged_in?
   before_action :set_cart
 

@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  include CheckAuthorization
+  include SetCart
   before_action :user_logged_in?
   before_action :cart_empty?, only: %i[new create]
   before_action :set_cart, only: :create

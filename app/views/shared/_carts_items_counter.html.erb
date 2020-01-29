@@ -1,0 +1,10 @@
+<span class="cart-counter">
+  <%= link_to purchase_cart_path(id: current_user) do %>
+    <button class="search-nav"><i class="fa fa-shopping-cart link"></i></button>
+    <% if current_user.cart&.cart_items.present? %>
+      <span class="badge badge-danger">
+        <%= current_user.cart.cart_items.count %>
+      </span>
+    <% end %>
+  <% end %>
+</span>

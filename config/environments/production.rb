@@ -6,7 +6,7 @@ Rails.application.configure do
     domain: 'example.com',
     user_name: 'blog.on.rails.test@gmail.com',
     password: Rails.application.credentials.aws[:gmail],
-    #password: ENV['GMAIL'],
+    # password: ENV['GMAIL'],
     authentication: 'plain',
     enable_starttls_auto: true
   }

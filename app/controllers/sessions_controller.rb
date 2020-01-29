@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include CheckAuthorization
   before_action :current_user_already_exist?, except: :destroy
 
   def new; end
