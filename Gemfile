@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 #
 gem 'bootstrap-will_paginate'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'faker', '~> 2.9'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'mini_magick'
